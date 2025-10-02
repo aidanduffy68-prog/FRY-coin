@@ -1,0 +1,50 @@
+# Fryboy Federated Learning Requirements
+# ========================================
+
+# Core Federated Learning
+flwr==1.6.0
+flwr-datasets==0.0.2
+
+# Deep Learning
+torch>=2.6.0
+torchvision>=0.16.0
+
+# Scientific Computing
+numpy>=1.24.3
+scipy>=1.11.3
+
+# Production zkML
+ezkl>=22.0.0
+onnx>=1.15.0
+onnxruntime>=1.16.0
+
+# Market Data
+ccxt>=4.0.0
+
+# Data Processing
+pandas==2.1.1
+
+# Networking
+grpcio==1.59.0
+protobuf==4.24.4
+
+# Logging and Monitoring
+tensorboard==2.14.1
+wandb==0.15.12
+
+# Utilities
+tqdm==4.66.1
+pyyaml==6.0.1
+
+# Testing (optional)
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Existing Agent B Dependencies
+# (These should already be installed in your environment)
+# - Collections (built-in)
+# - Time (built-in)
+# - JSON (built-in)
+# - Logging (built-in)
+# - Random (built-in)
+# - Math (built-in)

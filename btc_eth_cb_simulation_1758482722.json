@@ -1,0 +1,56 @@
+{
+  "mm_x_final": {
+    "total_churn": 13661.92261582028, 
+    "circuit_breaker_status": {
+      "status": "cooldown", 
+      "recent_trades": 3, 
+      "cooldown_remaining": 5, 
+      "churn_ratio": 0
+    }, 
+    "recycled_value": 0.40158018854681704, 
+    "fry_balance": 0.40158018854681704, 
+    "eth_metrics": {
+      "trades": 0, 
+      "churn": 0.0, 
+      "inventory": 0.0, 
+      "profits": 0.0
+    }, 
+    "total_return": 0.0008365540436001029, 
+    "total_capital": 500418.27702180005, 
+    "total_trades": 3, 
+    "total_profits": 0.0, 
+    "blocked_trades": 175, 
+    "agent_type": "Crypto_MM_x_CB", 
+    "btc_metrics": {
+      "trades": 3, 
+      "churn": 13661.92261582028, 
+      "inventory": 0.28160399275240633, 
+      "profits": 0.0
+    }
+  }, 
+  "mm_y_final": {
+    "eth_metrics": {
+      "trades": 18, 
+      "churn": 106251.36253173737, 
+      "inventory": 0.7571786226969942, 
+      "profits": 1772.7430745905253
+    }, 
+    "total_return": 0.02133211938348587, 
+    "agent_type": "Traditional_Crypto_MM_y", 
+    "total_churn": 279380.893964444, 
+    "total_profits": 4229.351804850641, 
+    "btc_metrics": {
+      "trades": 25, 
+      "churn": 173129.53143270672, 
+      "inventory": 0.0444762245960634, 
+      "profits": 2456.6087302601154
+    }, 
+    "total_capital": 510666.05969174294, 
+    "total_trades": 43
+  }, 
+  "analysis": {
+    "churn_difference": -265718.97134862375, 
+    "return_difference_pct": -2.049556533988577, 
+    "winner": "MM_y"
+  }
+}
