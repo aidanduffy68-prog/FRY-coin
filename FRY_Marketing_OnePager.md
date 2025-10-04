@@ -149,9 +149,9 @@ System Health:      100% operational
 
 ## Get Involved
 
-📘 **Technical Whitepaper**: [Read the full spec](https://github.com/aidanduffy68-prog/FRY-coin/blob/main/liquidity-rails/docs/FRY_TECHNICAL_WHITEPAPER.md)
+📘 **Technical Whitepaper**: [Read the full spec](https://github.com/aidanduffy68-prog/FRY-Protocol/blob/main/liquidity-rails/docs/FRY_TECHNICAL_WHITEPAPER.md)
 
-💻 **GitHub**: [github.com/aidanduffy68-prog/FRY-coin](https://github.com/aidanduffy68-prog/FRY-coin)
+💻 **GitHub**: [github.com/aidanduffy68-prog/FRY-Protocol](https://github.com/aidanduffy68-prog/FRY-Protocol)
 
 📧 **Contact**: Open an issue on GitHub
 

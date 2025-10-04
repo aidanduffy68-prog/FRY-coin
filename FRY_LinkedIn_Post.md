@@ -43,6 +43,6 @@ That's the edge.
 🍟 **FRY: Turning Losses into Wins**
 
 Production-ready. Open for partnerships.
-→ github.com/aidanduffy68-prog/FRY-coin
+→ github.com/aidanduffy68-prog/FRY-Protocol
 
 #DeFi #Trading #Crypto
