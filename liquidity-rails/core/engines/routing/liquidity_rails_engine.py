@@ -320,23 +320,25 @@ class LiquidityRailsEngine:
         # Base FRY
         base_fry = amount_usd * self.rails_fry_rate
         
-        # Efficiency bonus: lower cost = higher bonus
-        max_cost_bps = 50  # Normalize to 50 bps max
-        efficiency_factor = 1.0 - min(cost_bps / max_cost_bps, 1.0)
-        efficiency_bonus = base_fry * efficiency_factor * 0.3
+        # Efficiency bonus (lower cost = higher bonus)
+        efficiency_bonus = (1 - cost_bps / MAX_COST_BPS) * 0.3
         
-        # Multi-hop bonus: liquidity aggregation
-        if num_hops > 1:
-            multi_hop_bonus = base_fry * (num_hops - 1) * 0.15
-        else:
-            multi_hop_bonus = 0
+        # Multi-hop bonus
+        multi_hop_bonus = (num_hops - 1) * 0.15
         
         # Liquidity provision bonus
-        liquidity_bonus = base_fry * (self.liquidity_bonus - 1.0)
+        liquidity_bonus = 0.6  # 60% bonus for providing liquidity
         
-        total_fry = base_fry + efficiency_bonus + multi_hop_bonus + liquidity_bonus
+        # Native stablecoin bonus (50% for using USDH/USDF)
+        native_bonus = 0.0
+        for hop in self.route.hops:
+            if hop['venue'] in DEXES:
+                native_bonus += 0.5  # 50% bonus per native stablecoin venue
         
-        return total_fry
+        total_multiplier = 1 + efficiency_bonus + multi_hop_bonus + liquidity_bonus + native_bonus
+        fry_minted = base_fry * total_multiplier
+        
+        return fry_minted
     
     def execute_route(self, route: WreckageRoute) -> Dict:
         """
