@@ -500,13 +500,13 @@ npx hardhat run scripts/deploy_fry_system.js --network arbitrum
 
 ### 11.2 Feature Roadmap
 
-**Q1 2025**:
+**Q1 2026**:
 - [ ] 10+ DEX integrations
 - [ ] $50M+ TVL
 - [ ] 500+ Agent B instances
 - [ ] Governance launch
 
-**Q2 2025**:
+**Q2 2026**:
 - [ ] Cross-chain expansion
 - [ ] Institutional partnerships
 - [ ] Advanced ML (transformers)
