@@ -1,0 +1,45 @@
+# USD_FRY Protocol - Python Dependencies
+# ======================================
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# Machine Learning
+torch==2.1.0
+numpy==1.24.3
+pandas==2.1.3
+scikit-learn==1.3.2
+
+# Federated Learning
+flwr==1.6.0
+
+# zkML & Privacy
+onnx==1.15.0
+# ezkl - Install separately: pip install ezkl==22.2.1
+
+# Market Data
+ccxt==4.1.0
+
+# Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+aiohttp==3.9.1
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Cryptography (for Pedersen commitments)
+cryptography==41.0.7
+pycryptodome==3.19.0
+
+# Optional: For production deployment
+gunicorn==21.2.0
+redis==5.0.1
+celery==5.3.4
