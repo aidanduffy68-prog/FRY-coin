@@ -6,31 +6,31 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
- * @title FRYToken
- * @dev FRY token with wreckage-based minting and native stablecoin integration
+ * @title USDFRYToken
+ * @dev USD_FRY - The first wreckage-backed stablecoin
  * 
  * Core Features:
- * - Wreckage-based minting (losses → FRY)
+ * - Wreckage-based minting (losses → USD_FRY)
  * - Native stablecoin bonuses (USDH, USDF)
  * - Multi-tier minting rates
- * - Liquidity provision rewards
+ * - USD-denominated, wreckage-backed
  */
-contract FRYToken is ERC20, AccessControl, ReentrancyGuard {
+contract USDFRYToken is ERC20, AccessControl, ReentrancyGuard {
     
     // Roles
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant ROUTER_ROLE = keccak256("ROUTER_ROLE");
     
     // Minting rates (basis points, 10000 = 100%)
-    uint256 public constant BASE_RATE = 5000;           // 0.5 FRY per $1
-    uint256 public constant RAILS_RATE = 12000;         // 1.2 FRY per $1
-    uint256 public constant P2P_RATE = 14000;           // 1.4 FRY per $1
+    uint256 public constant BASE_RATE = 5000;           // 0.5 USD_FRY per $1
+    uint256 public constant RAILS_RATE = 12000;         // 1.2 USD_FRY per $1
+    uint256 public constant P2P_RATE = 14000;           // 1.4 USD_FRY per $1
     uint256 public constant NATIVE_BONUS = 5000;        // 50% bonus
     uint256 public constant EFFICIENCY_BONUS = 3000;    // 30% max
     uint256 public constant LIQUIDITY_BONUS = 6000;     // 60% bonus
     
     // Supply limits
-    uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18; // 1B FRY
+    uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18; // 1B USD_FRY
     
     // Supported native stablecoins
     mapping(string => bool) public nativeStablecoins;
@@ -70,7 +70,7 @@ contract FRYToken is ERC20, AccessControl, ReentrancyGuard {
     event NativeStablecoinAdded(string stablecoin, string dex);
     event NativeStablecoinRemoved(string stablecoin);
     
-    constructor() ERC20("FRY Liquidity Rails", "FRY") {
+    constructor() ERC20("USD_FRY Wreckage-Backed Stablecoin", "USD_FRY") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
         
@@ -80,7 +80,7 @@ contract FRYToken is ERC20, AccessControl, ReentrancyGuard {
     }
     
     /**
-     * @dev Mint FRY from wreckage event
+     * @dev Mint USD_FRY from wreckage event
      * @param recipient Address to receive FRY
      * @param amountUSD Wreckage amount in USD (18 decimals)
      * @param dex DEX name
@@ -100,7 +100,7 @@ contract FRYToken is ERC20, AccessControl, ReentrancyGuard {
         require(amountUSD > 0, "Amount must be > 0");
         require(efficiencyScore <= 10000, "Invalid efficiency score");
         
-        // Calculate base FRY amount
+        // Calculate base USD_FRY amount
         uint256 baseRate = _getBaseRate(routingType);
         uint256 baseFry = (amountUSD * baseRate) / 10000;
         
@@ -120,13 +120,13 @@ contract FRYToken is ERC20, AccessControl, ReentrancyGuard {
             totalBonus += LIQUIDITY_BONUS;
         }
         
-        // Calculate final FRY amount
+        // Calculate final USD_FRY amount
         uint256 fryAmount = baseFry + (baseFry * totalBonus) / 10000;
         
         // Check supply limit
         require(totalSupply() + fryAmount <= MAX_SUPPLY, "Max supply exceeded");
         
-        // Mint FRY
+        // Mint USD_FRY
         _mint(recipient, fryAmount);
         
         // Record wreckage event

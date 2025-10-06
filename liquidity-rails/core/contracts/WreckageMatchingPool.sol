@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-interface IFRYToken {
+interface IUSDFRYToken {
     function mintFromWreckage(
         address recipient,
         uint256 amountUSD,
@@ -22,14 +22,14 @@ interface IFRYToken {
  * Features:
  * - Cash-settled funding rate swaps
  * - Cross-DEX position matching
- * - Highest FRY minting rate (1.4x)
+ * - Highest USD_FRY minting rate (1.4x)
  * - No token transfers needed
  */
 contract WreckageMatchingPool is ReentrancyGuard, AccessControl {
     
     bytes32 public constant MATCHER_ROLE = keccak256("MATCHER_ROLE");
     
-    IFRYToken public fryToken;
+    IUSDFRYToken public usdFryToken;
     
     // Position types
     enum PositionType { LONG, SHORT }
@@ -88,8 +88,8 @@ contract WreckageMatchingPool is ReentrancyGuard, AccessControl {
         uint256 fryMinted2
     );
     
-    constructor(address _fryToken) {
-        fryToken = IFRYToken(_fryToken);
+    constructor(address _usdFryToken) {
+        usdFryToken = IUSDFRYToken(_usdFryToken);
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MATCHER_ROLE, msg.sender);
     }
@@ -204,9 +204,9 @@ contract WreckageMatchingPool is ReentrancyGuard, AccessControl {
         uint256 matchedAmount = pos1.amountUSD < pos2.amountUSD ? 
             pos1.amountUSD : pos2.amountUSD;
         
-        // Mint FRY for both traders (P2P rate = 1.4x)
+        // Mint USD_FRY for both traders (P2P rate = 1.4x)
         // Efficiency score = 10000 (100%) for P2P matches
-        uint256 fryMinted1 = fryToken.mintFromWreckage(
+        uint256 fryMinted1 = usdFryToken.mintFromWreckage(
             pos1.trader,
             matchedAmount,
             pos1.dex,
@@ -215,7 +215,7 @@ contract WreckageMatchingPool is ReentrancyGuard, AccessControl {
             10000
         );
         
-        uint256 fryMinted2 = fryToken.mintFromWreckage(
+        uint256 fryMinted2 = usdFryToken.mintFromWreckage(
             pos2.trader,
             matchedAmount,
             pos2.dex,

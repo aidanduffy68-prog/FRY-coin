@@ -9,12 +9,12 @@ async function main() {
   console.log("Network:", hre.network.name);
   console.log("\n" + "=".repeat(70) + "\n");
   
-  // 1. Deploy FRY Token
-  console.log("📝 Deploying FRYToken...");
-  const FRYToken = await hre.ethers.getContractFactory("FRYToken");
-  const fryToken = await FRYToken.deploy();
-  await fryToken.deployed();
-  console.log("✅ FRYToken deployed to:", fryToken.address);
+  // 1. Deploy USD_FRY Token
+  console.log("📝 Deploying USDFRYToken...");
+  const USDFRYToken = await hre.ethers.getContractFactory("USDFRYToken");
+  const usdFryToken = await USDFRYToken.deploy();
+  await usdFryToken.deployed();
+  console.log("✅ USDFRYToken deployed to:", usdFryToken.address);
   
   // 2. Deploy AgentBVerifier
   console.log("\n📝 Deploying AgentBVerifier...");
@@ -33,28 +33,28 @@ async function main() {
   // 4. Deploy LiquidityRailsRouter
   console.log("\n📝 Deploying LiquidityRailsRouter...");
   const LiquidityRailsRouter = await hre.ethers.getContractFactory("LiquidityRailsRouter");
-  const router = await LiquidityRailsRouter.deploy(fryToken.address);
+  const router = await LiquidityRailsRouter.deploy(usdFryToken.address);
   await router.deployed();
   console.log("✅ LiquidityRailsRouter deployed to:", router.address);
   
   // 5. Deploy WreckageMatchingPool
   console.log("\n📝 Deploying WreckageMatchingPool...");
   const WreckageMatchingPool = await hre.ethers.getContractFactory("WreckageMatchingPool");
-  const matchingPool = await WreckageMatchingPool.deploy(fryToken.address);
+  const matchingPool = await WreckageMatchingPool.deploy(usdFryToken.address);
   await matchingPool.deployed();
   console.log("✅ WreckageMatchingPool deployed to:", matchingPool.address);
   
   // 6. Grant roles
   console.log("\n📝 Setting up roles...");
   
-  const MINTER_ROLE = await fryToken.MINTER_ROLE();
+  const MINTER_ROLE = await usdFryToken.MINTER_ROLE();
   
   // Grant MINTER_ROLE to router
-  await fryToken.grantRole(MINTER_ROLE, router.address);
+  await usdFryToken.grantRole(MINTER_ROLE, router.address);
   console.log("✅ Granted MINTER_ROLE to LiquidityRailsRouter");
   
   // Grant MINTER_ROLE to matching pool
-  await fryToken.grantRole(MINTER_ROLE, matchingPool.address);
+  await usdFryToken.grantRole(MINTER_ROLE, matchingPool.address);
   console.log("✅ Granted MINTER_ROLE to WreckageMatchingPool");
   
   // Summary
@@ -62,7 +62,7 @@ async function main() {
   console.log("\n🎉 Deployment Complete!\n");
   console.log("Contract Addresses:");
   console.log("-------------------");
-  console.log("FRYToken:                      ", fryToken.address);
+  console.log("USDFRYToken:                   ", usdFryToken.address);
   console.log("AgentBVerifier:                ", agentBVerifier.address);
   console.log("ConfidentialPositionVerifier:  ", positionVerifier.address);
   console.log("LiquidityRailsRouter:          ", router.address);
@@ -75,7 +75,7 @@ async function main() {
     deployer: deployer.address,
     timestamp: new Date().toISOString(),
     contracts: {
-      FRYToken: fryToken.address,
+      USDFRYToken: usdFryToken.address,
       AgentBVerifier: agentBVerifier.address,
       ConfidentialPositionVerifier: positionVerifier.address,
       LiquidityRailsRouter: router.address,
@@ -93,11 +93,11 @@ async function main() {
   // Verification instructions
   if (hre.network.name !== "hardhat") {
     console.log("📋 To verify contracts on Arbiscan, run:");
-    console.log(`npx hardhat verify --network ${hre.network.name} ${fryToken.address}`);
+    console.log(`npx hardhat verify --network ${hre.network.name} ${usdFryToken.address}`);
     console.log(`npx hardhat verify --network ${hre.network.name} ${agentBVerifier.address}`);
     console.log(`npx hardhat verify --network ${hre.network.name} ${positionVerifier.address}`);
-    console.log(`npx hardhat verify --network ${hre.network.name} ${router.address} ${fryToken.address}`);
-    console.log(`npx hardhat verify --network ${hre.network.name} ${matchingPool.address} ${fryToken.address}`);
+    console.log(`npx hardhat verify --network ${hre.network.name} ${router.address} ${usdFryToken.address}`);
+    console.log(`npx hardhat verify --network ${hre.network.name} ${matchingPool.address} ${usdFryToken.address}`);
     console.log("\n");
   }
 }

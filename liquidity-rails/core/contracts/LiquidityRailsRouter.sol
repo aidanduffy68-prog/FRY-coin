@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-interface IFRYToken {
+interface IUSDFRYToken {
     function mintFromWreckage(
         address recipient,
         uint256 amountUSD,
@@ -24,13 +24,13 @@ interface IFRYToken {
  * - Multi-hop routing (up to 3 hops)
  * - Native stablecoin integration (USDH, USDF)
  * - Optimal path finding
- * - FRY minting with bonuses
+ * - USD_FRY minting with bonuses
  */
 contract LiquidityRailsRouter is ReentrancyGuard, AccessControl {
     
     bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
     
-    IFRYToken public fryToken;
+    IUSDFRYToken public usdFryToken;
     
     // Venue configuration
     struct Venue {
@@ -74,8 +74,8 @@ contract LiquidityRailsRouter is ReentrancyGuard, AccessControl {
         uint256 totalCostBps
     );
     
-    constructor(address _fryToken) {
-        fryToken = IFRYToken(_fryToken);
+    constructor(address _usdFryToken) {
+        usdFryToken = IUSDFRYToken(_usdFryToken);
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(OPERATOR_ROLE, msg.sender);
         
@@ -167,8 +167,8 @@ contract LiquidityRailsRouter is ReentrancyGuard, AccessControl {
         // Get first venue's stablecoin
         Venue memory firstVenue = venues[optimalPath[0]];
         
-        // Mint FRY
-        uint256 fryMinted = fryToken.mintFromWreckage(
+        // Mint USD_FRY
+        uint256 fryMinted = usdFryToken.mintFromWreckage(
             msg.sender,
             amountUSD,
             firstVenue.name,

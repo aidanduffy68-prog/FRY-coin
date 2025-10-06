@@ -1,27 +1,28 @@
-# FRY Protocol Smart Contracts
+# USD_FRY Protocol Smart Contracts
 
-Production-ready smart contracts for the FRY liquidity rails system.
+Production-ready smart contracts for the USD_FRY liquidity rails system.
 
 ## Contracts
 
 ### Core Contracts
 
-1. **FRYToken.sol** - ERC20 token with wreckage-based minting
+1. **USDFRYToken.sol** - Wreckage-backed stablecoin
    - Multi-tier minting rates (base, rails, P2P)
    - Native stablecoin bonuses (USDH, USDF)
    - Wreckage event tracking
-   - Supply limit: 1B FRY
+   - Supply limit: 1B USD_FRY
+   - USD-denominated, wreckage-backed
 
 2. **LiquidityRailsRouter.sol** - On-chain routing for wreckage
    - Multi-hop routing (up to 3 hops)
    - Venue management (Hyperliquid, Aster)
    - Optimal path finding
-   - FRY minting with efficiency bonuses
+   - USD_FRY minting with efficiency bonuses
 
 3. **WreckageMatchingPool.sol** - P2P matching for funding swaps
    - Cash-settled position matching
    - Cross-DEX offsetting
-   - Highest FRY rate (1.4x)
+   - Highest USD_FRY rate (1.4x)
    - Automatic matching engine
 
 ### Privacy Contracts
@@ -95,14 +96,14 @@ npx hardhat verify --network arbitrumSepolia <CONTRACT_ADDRESS> <CONSTRUCTOR_ARG
 ## Contract Addresses
 
 ### Arbitrum Sepolia (Testnet)
-- FRYToken: TBD
+- USDFRYToken: TBD
 - LiquidityRailsRouter: TBD
 - WreckageMatchingPool: TBD
 - AgentBVerifier: TBD
 - ConfidentialPositionVerifier: TBD
 
 ### Arbitrum One (Mainnet)
-- FRYToken: TBD
+- USDFRYToken: TBD
 - LiquidityRailsRouter: TBD
 - WreckageMatchingPool: TBD
 - AgentBVerifier: TBD
@@ -110,11 +111,11 @@ npx hardhat verify --network arbitrumSepolia <CONTRACT_ADDRESS> <CONSTRUCTOR_ARG
 
 ## Usage
 
-### Minting FRY from Wreckage
+### Minting USD_FRY from Wreckage
 
 ```solidity
 // Route wreckage through liquidity rails
-uint256 fryMinted = router.routeWreckage(
+uint256 usdFryMinted = router.routeWreckage(
     100000 * 10**18,  // $100k wreckage
     2                  // Max 2 hops
 );
@@ -137,7 +138,7 @@ bytes32 positionId = matchingPool.submitPosition(
 
 ```solidity
 // Get system stats
-(uint256 wreckage, uint256 fry, uint256 rate,,) = fryToken.getSystemStats();
+(uint256 wreckage, uint256 usdFry, uint256 rate,,) = usdFryToken.getSystemStats();
 ```
 
 ## Testing
@@ -161,7 +162,7 @@ npm test
 |-----------|-----|-----------------|
 | Route wreckage | ~150k | $0.015 |
 | Submit position | ~100k | $0.010 |
-| Mint FRY | ~80k | $0.008 |
+| Mint USD_FRY | ~80k | $0.008 |
 | Verify zkML proof | ~250k | $0.025 |
 
 ## License

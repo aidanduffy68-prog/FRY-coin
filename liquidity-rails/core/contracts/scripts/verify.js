@@ -13,13 +13,13 @@ async function main() {
   console.log("\n" + "=".repeat(70) + "\n");
   
   try {
-    // Verify FRYToken
-    console.log("📝 Verifying FRYToken...");
+    // Verify USDFRYToken
+    console.log("📝 Verifying USDFRYToken...");
     await hre.run("verify:verify", {
-      address: contracts.FRYToken,
+      address: contracts.USDFRYToken,
       constructorArguments: []
     });
-    console.log("✅ FRYToken verified");
+    console.log("✅ USDFRYToken verified");
     
     // Verify AgentBVerifier
     console.log("\n📝 Verifying AgentBVerifier...");
@@ -41,7 +41,7 @@ async function main() {
     console.log("\n📝 Verifying LiquidityRailsRouter...");
     await hre.run("verify:verify", {
       address: contracts.LiquidityRailsRouter,
-      constructorArguments: [contracts.FRYToken]
+      constructorArguments: [contracts.USDFRYToken]
     });
     console.log("✅ LiquidityRailsRouter verified");
     
@@ -49,7 +49,7 @@ async function main() {
     console.log("\n📝 Verifying WreckageMatchingPool...");
     await hre.run("verify:verify", {
       address: contracts.WreckageMatchingPool,
-      constructorArguments: [contracts.FRYToken]
+      constructorArguments: [contracts.USDFRYToken]
     });
     console.log("✅ WreckageMatchingPool verified");
     
