@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FRY Protocol Roadmap 2026</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0A0A0A;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+        }
+        #canvas {
+            background: #0A0A0A;
+        }
+    </style>
+</head>
+<body>
+    <svg id="canvas" width="1400" height="800" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="1400" height="800" fill="#0A0A0A"/>
+        
+        <!-- Title -->
+        <text x="700" y="80" font-size="48" font-weight="bold" fill="#FFD700" text-anchor="middle">
+            FRY Protocol Roadmap
+        </text>
+        <text x="700" y="120" font-size="20" fill="#FFFFFF" text-anchor="middle" opacity="0.8">
+            Native Stablecoin Liquidity Infrastructure
+        </text>
+        
+        <!-- Timeline -->
+        <line x1="150" y1="600" x2="1250" y2="600" stroke="#FFD700" stroke-width="4" opacity="0.6"/>
+        
+        <!-- Q1 2026 Box -->
+        <rect x="200" y="200" width="400" height="320" rx="15" fill="#1A1A1A" stroke="#FF8C00" stroke-width="3"/>
+        <text x="400" y="650" font-size="28" font-weight="bold" fill="#FF8C00" text-anchor="middle">Q1 2026</text>
+        <line x1="400" y1="600" x2="400" y2="520" stroke="#FF8C00" stroke-width="3" stroke-dasharray="5,5" opacity="0.5"/>
+        
+        <text x="400" y="250" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">10+ DEX</text>
+        <text x="400" y="280" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Integrations</text>
+        
+        <text x="400" y="330" font-size="20" font-weight="bold" fill="#FFD700" text-anchor="middle">$50M+ TVL</text>
+        
+        <text x="400" y="380" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">500+ Agent B</text>
+        <text x="400" y="410" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Instances</text>
+        
+        <text x="400" y="460" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Governance</text>
+        <text x="400" y="490" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Launch</text>
+        
+        <!-- Q2 2026 Box -->
+        <rect x="800" y="200" width="400" height="320" rx="15" fill="#1A1A1A" stroke="#FF4444" stroke-width="3"/>
+        <text x="1000" y="650" font-size="28" font-weight="bold" fill="#FF4444" text-anchor="middle">Q2 2026</text>
+        <line x1="1000" y1="600" x2="1000" y2="520" stroke="#FF4444" stroke-width="3" stroke-dasharray="5,5" opacity="0.5"/>
+        
+        <text x="1000" y="250" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Cross-Chain</text>
+        <text x="1000" y="280" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Expansion</text>
+        
+        <text x="1000" y="330" font-size="20" font-weight="bold" fill="#FFD700" text-anchor="middle">Institutional</text>
+        <text x="1000" y="360" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Partnerships</text>
+        
+        <text x="1000" y="410" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Advanced ML</text>
+        <text x="1000" y="440" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">(Transformers)</text>
+        
+        <text x="1000" y="490" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Options Market</text>
+        
+        <!-- Current Status Box -->
+        <rect x="100" y="680" width="1200" height="100" rx="15" fill="#1A1A1A" stroke="#FFD700" stroke-width="3"/>
+        <text x="700" y="720" font-size="24" font-weight="bold" fill="#FFD700" text-anchor="middle">
+            Current Status: Production Ready
+        </text>
+        
+        <!-- Metrics -->
+        <text x="250" y="755" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2.26 FRY/$1</text>
+        <text x="250" y="775" font-size="13" fill="#FFFFFF" text-anchor="middle" opacity="0.7">Minting Rate</text>
+        
+        <text x="550" y="755" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">7.4x</text>
+        <text x="550" y="775" font-size="13" fill="#FFFFFF" text-anchor="middle" opacity="0.7">Capital Efficiency</text>
+        
+        <text x="850" y="755" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">61.5%</text>
+        <text x="850" y="775" font-size="13" fill="#FFFFFF" text-anchor="middle" opacity="0.7">Volatility Reduction</text>
+        
+        <text x="1150" y="755" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">USDH/USDF</text>
+        <text x="1150" y="775" font-size="13" fill="#FFFFFF" text-anchor="middle" opacity="0.7">Native Only</text>
+        
+        <!-- Footer -->
+        <text x="700" y="160" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">
+            Hyperliquid (USDH) • Aster (USDF)
+        </text>
+        <text x="700" y="185" font-size="15" fill="#FF8C00" text-anchor="middle">
+            github.com/aidanduffy68-prog/FRY-Protocol
+        </text>
+    </svg>
+    
+    <div style="margin-top: 20px; text-align: center;">
+        <button onclick="downloadSVG()" style="background: #FFD700; color: #0A0A0A; border: none; padding: 15px 30px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer;">
+            Download as SVG
+        </button>
+        <button onclick="downloadPNG()" style="background: #FF8C00; color: #FFFFFF; border: none; padding: 15px 30px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-left: 10px;">
+            Download as PNG
+        </button>
+    </div>
+    
+    <script>
+        function downloadSVG() {
+            const svg = document.getElementById('canvas');
+            const serializer = new XMLSerializer();
+            const svgString = serializer.serializeToString(svg);
+            const blob = new Blob([svgString], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'FRY_Roadmap_LinkedIn.svg';
+            a.click();
+        }
+        
+        function downloadPNG() {
+            const svg = document.getElementById('canvas');
+            const canvas = document.createElement('canvas');
+            canvas.width = 1400;
+            canvas.height = 800;
+            const ctx = canvas.getContext('2d');
+            
+            const data = new XMLSerializer().serializeToString(svg);
+            const img = new Image();
+            const blob = new Blob([data], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0);
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'FRY_Roadmap_LinkedIn.png';
+                    a.click();
+                });
+            };
+            img.src = url;
+        }
+    </script>
+</body>
+</html>
