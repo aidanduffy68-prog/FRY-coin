@@ -55,9 +55,9 @@ document.querySelectorAll('.feature-card, .metric-card, .doc-card, .flow-step').
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.classList.remove('scrolled');
     }
 });
 

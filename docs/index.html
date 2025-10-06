@@ -12,7 +12,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">USD_FRY</div>
+            <div class="logo">
+                <img src="fries-mascot.png" alt="USD_FRY" class="logo-icon">
+                USD_FRY
+            </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
@@ -31,6 +34,10 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="fries-video-stock.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">USD_FRY</h1>
             <p class="hero-subtitle">The First Wreckage-Backed Stablecoin</p>
@@ -300,7 +307,13 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2025 USD_FRY Protocol | MIT License</p>
-                <p>Powered by Wreckage Absorption</p>
+                <p class="powered-by">
+                    Powered by 
+                    <a href="https://greenhousecompany.com" target="_blank" class="greenhouse-link">
+                        <img src="greenhouse-logo.png" alt="Greenhouse & Company" class="greenhouse-logo">
+                        Greenhouse & Company
+                    </a>
+                </p>
             </div>
         </div>
     </footer>

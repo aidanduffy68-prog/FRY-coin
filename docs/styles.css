@@ -40,10 +40,15 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    background: transparent;
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
 }
 
 .nav-container {
@@ -61,6 +66,20 @@ body {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .nav-menu {
@@ -111,12 +130,40 @@ body {
     justify-content: center;
     text-align: center;
     padding: 100px 20px 60px;
-    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, rgba(10, 10, 10, 0.8) 70%);
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 900px;
+    position: relative;
+    z-index: 2;
 }
+
 
 .hero-title {
     font-size: clamp(48px, 10vw, 96px);
@@ -538,6 +585,32 @@ tr:hover {
 
 .footer-bottom p {
     margin: 5px 0;
+}
+
+.powered-by {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.greenhouse-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.greenhouse-link:hover {
+    color: var(--primary);
+}
+
+.greenhouse-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
 }
 
 /* Responsive */
