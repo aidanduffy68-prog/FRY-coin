@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="USD_FRY - The first wreckage-backed stablecoin">
+    <title>USD_FRY.exe - Wreckage-Backed Stablecoin</title>
+    <link rel="stylesheet" href="retro-styles.css">
+</head>
+<body>
+    <!-- Desktop -->
+    <div class="desktop">
+        <!-- Hero Window -->
+        <div class="window hero-window">
+            <div class="window-title">
+                <img src="fries-8bit.svg" alt="USD_FRY" style="image-rendering: pixelated;">
+                USD_FRY.exe - The First Wreckage-Backed Stablecoin
+            </div>
+            <div class="window-content">
+                <div class="hero-content-retro">
+                    <div style="position: relative; display: inline-block;">
+                        <img src="fries-8bit.svg" alt="USD_FRY" class="hero-mascot-retro" id="mascot-icon" style="cursor: pointer; image-rendering: pixelated;">
+                        <div id="mouse-cursor" style="display: none; position: absolute; top: 50%; left: 50%; width: 20px; height: 20px; pointer-events: none;">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M0,0 L0,16 L4,12 L7,20 L9,19 L6,11 L12,11 Z" fill="white" stroke="black" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h1 class="hero-title-retro">USD_FRY</h1>
+                    <p class="hero-subtitle-retro">The First Wreckage-Backed Stablecoin</p>
+                    <p style="margin-bottom: 20px;">Turning trading losses into productive assets</p>
+                    
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn-win" onclick="scrollToSection('metrics')">View Metrics</button>
+                        <button class="btn-win" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY')">GitHub</button>
+                        <button class="btn-win" onclick="scrollToSection('docs')">Documentation</button>
+                    </div>
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats-grid-retro">
+                    <div class="stat-box">
+                        <div class="stat-value">2.26x</div>
+                        <div class="stat-label">Minting Rate</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">7.4x</div>
+                        <div class="stat-label">Capital Efficiency</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">61.5%</div>
+                        <div class="stat-label">Volatility ↓</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Native Stablecoins</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Window -->
+        <div class="window">
+            <div class="window-title">
+                ► How It Works - System Architecture
+            </div>
+            <div class="window-content">
+                <h3 style="margin-bottom: 10px;">Three-Tier Routing System</h3>
+                
+                <div class="stats-grid-retro">
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="background: linear-gradient(to right, #008000, #00a000);">
+                            Tier 1: P2P Matching
+                        </div>
+                        <div class="window-content">
+                            <div class="stat-value" style="font-size: 24px;">1.4x</div>
+                            <p style="font-size: 11px; margin-top: 5px;">Highest minting rate</p>
+                            <p style="font-size: 10px; margin-top: 10px;">Cash-settled funding rate swaps with offsetting positions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="background: linear-gradient(to right, #000080, #1084d0);">
+                            Tier 2: Liquidity Rails
+                        </div>
+                        <div class="window-content">
+                            <div class="stat-value" style="font-size: 24px;">1.2-2.2x</div>
+                            <p style="font-size: 11px; margin-top: 5px;">Optimized routing</p>
+                            <p style="font-size: 10px; margin-top: 10px;">Multi-hop path finding with efficiency bonuses</p>
+                        </div>
+                    </div>
+                    
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="background: linear-gradient(to right, #800000, #a00000);">
+                            Tier 3: Agent B AI
+                        </div>
+                        <div class="window-content">
+                            <div class="stat-value" style="font-size: 24px;">0.8-1.0x</div>
+                            <p style="font-size: 11px; margin-top: 5px;">AI market making</p>
+                            <p style="font-size: 10px; margin-top: 10px;">ML-enhanced adaptive hedging fallback</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Window -->
+        <div class="window" id="metrics">
+            <div class="window-title">
+                ▲ Performance Metrics - System Statistics
+            </div>
+            <div class="window-content">
+                <div class="tabs">
+                    <div class="tab active">Overview</div>
+                    <div class="tab">Comparison</div>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <h3 style="margin-bottom: 10px;">Live System Performance</h3>
+                    
+                    <div class="progress-bar" style="margin-bottom: 10px;">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                    <p style="font-size: 10px; margin-bottom: 20px;">System Efficiency: 75% (Optimal)</p>
+                    
+                    <table class="table-retro">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Wreckage Processed</td>
+                                <td>$2.89M</td>
+                                <td>[OK]</td>
+                            </tr>
+                            <tr>
+                                <td>USD_FRY Minted</td>
+                                <td>8.67M</td>
+                                <td>[OK]</td>
+                            </tr>
+                            <tr>
+                                <td>P2P Match Rate</td>
+                                <td>30%</td>
+                                <td>[OK]</td>
+                            </tr>
+                            <tr>
+                                <td>Improvement vs Base</td>
+                                <td>+500%</td>
+                                <td>[OK]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Window -->
+        <div class="window">
+            <div class="window-title">
+                ◘ Comparison - USD_FRY vs Traditional Stablecoins
+            </div>
+            <div class="window-content">
+                <table class="table-retro">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>USDC/USDT</th>
+                            <th>USDF/USDH</th>
+                            <th style="background: #FFD700; color: #000;">USD_FRY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Backing</strong></td>
+                            <td>Fiat Reserves</td>
+                            <td>Native Tokens</td>
+                            <td><strong>Wreckage</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Purpose</strong></td>
+                            <td>General Trading</td>
+                            <td>DEX Liquidity</td>
+                            <td><strong>Loss Absorption</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capital Efficiency</strong></td>
+                            <td>1x</td>
+                            <td>2-3x</td>
+                            <td><strong>7.4x</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecosystem Impact</strong></td>
+                            <td>Neutral</td>
+                            <td>Strengthens Token</td>
+                            <td><strong>Converts Losses</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Documentation Window -->
+        <div class="window" id="docs">
+            <div class="window-title">
+                ■ Documentation - Resources & Links
+            </div>
+            <div class="window-content">
+                <h3 style="margin-bottom: 10px;">Available Resources</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="font-size: 10px;">
+                            [?] Quick Start Guide
+                        </div>
+                        <div class="window-content">
+                            <p style="font-size: 10px; margin-bottom: 10px;">Get started in 5 minutes</p>
+                            <button class="btn-win" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY/blob/main/liquidity-rails/QUICKSTART.md')">Open</button>
+                        </div>
+                    </div>
+                    
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="font-size: 10px;">
+                            [*] Technical Whitepaper
+                        </div>
+                        <div class="window-content">
+                            <p style="font-size: 10px; margin-bottom: 10px;">Complete technical docs</p>
+                            <button class="btn-win" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY/blob/main/liquidity-rails/docs/FRY_TECHNICAL_WHITEPAPER.md')">Open</button>
+                        </div>
+                    </div>
+                    
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="font-size: 10px;">
+                            [#] Smart Contracts
+                        </div>
+                        <div class="window-content">
+                            <p style="font-size: 10px; margin-bottom: 10px;">Solidity contracts</p>
+                            <button class="btn-win" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY/tree/main/liquidity-rails/core/contracts')">Open</button>
+                        </div>
+                    </div>
+                    
+                    <div class="window" style="margin: 0;">
+                        <div class="window-title" style="font-size: 10px;">
+                            [<>] GitHub Repository
+                        </div>
+                        <div class="window-content">
+                            <p style="font-size: 10px; margin-bottom: 10px;">Full source code</p>
+                            <button class="btn-win" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY')">Open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Window -->
+        <div class="window">
+            <div class="window-title">
+                (i) About - USD_FRY Protocol
+            </div>
+            <div class="window-content">
+                <p style="font-size: 11px; margin-bottom: 10px;">
+                    <strong>USD_FRY Protocol</strong> - The first wreckage-backed stablecoin for native stablecoin DEXes
+                </p>
+                <p style="font-size: 10px; margin-bottom: 10px;">
+                    Built for: Hyperliquid (USDH) • Aster (USDF)
+                </p>
+                <p style="font-size: 10px; display: flex; align-items: center; gap: 5px;">
+                    Powered by 
+                    <img src="greenhouse-logo.png" alt="Greenhouse & Company" style="width: 16px; height: 16px; border-radius: 2px;">
+                    <a href="https://greenhousecompany.com" target="_blank" style="color: #000080;">Greenhouse & Company</a>
+                </p>
+                <p style="font-size: 9px; margin-top: 10px; color: #808080;">
+                    © 2025 USD_FRY Protocol | MIT License
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="navbar">
+        <div class="start-button">
+            <img src="fries-8bit.svg" alt="Start" style="image-rendering: pixelated;">
+            <span>Start</span>
+        </div>
+        <div class="taskbar-items">
+            <div class="taskbar-item active">USD_FRY.exe</div>
+        </div>
+        <div style="background: var(--win-gray); border: 2px inset; padding: 2px 8px; font-size: 10px; min-width: 80px; text-align: center;">
+            <span id="clock"></span>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 40px; background: rgba(0,0,0,0.8); z-index: 9999; padding: 20px;">
+        <div class="window" style="max-width: 800px; margin: 50px auto;">
+            <div class="window-title">
+                ▶ fries_video.avi - Windows Media Player
+                <button onclick="closeVideo()" style="float: right; background: #c0c0c0; border: 2px outset; padding: 0 6px; cursor: pointer;">×</button>
+            </div>
+            <div class="window-content" style="padding: 0; background: black; position: relative;">
+                <video id="fries-video" controls autoplay style="width: 100%; display: block;">
+                    <source src="fries-video-stock.mp4" type="video/mp4">
+                </video>
+                
+                <!-- Matrix/Hacker Overlay -->
+                <div id="video-stats" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: 'Courier New', monospace;">
+                    <!-- Scrolling code lines -->
+                    <div id="matrix-rain" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; opacity: 0.3;">
+                    </div>
+                    
+                    <!-- Terminal window -->
+                    <div style="position: absolute; top: 20px; left: 20px; background: rgba(0, 0, 0, 0.85); border: 2px solid #00ff00; padding: 15px; max-width: 350px; font-size: 12px; color: #00ff00;">
+                        <div style="margin-bottom: 5px; color: #ffff00;">$ ./fry_protocol --status</div>
+                        <div style="margin-bottom: 3px;">> Initializing wreckage router...</div>
+                        <div style="margin-bottom: 3px;">> Loading liquidity pools...</div>
+                        <div style="margin-bottom: 10px; color: #00ff00;">[OK] System online</div>
+                        
+                        <div style="margin-bottom: 5px; color: #ffffff;">CAPITAL_EFFICIENCY: <span style="color: #ffff00;">7.4x</span></div>
+                        <div style="margin-bottom: 5px; color: #ffffff;">MINTING_RATE: <span style="color: #00ff00;">2.26 FRY/$1</span></div>
+                        <div style="margin-bottom: 5px; color: #ffffff;">VOLATILITY_REDUCTION: <span style="color: #00ffff;">61.5%</span></div>
+                        <div style="margin-bottom: 10px; color: #ffffff;">STATUS: <span style="color: #00ff00; animation: blink 1s infinite;">[ACTIVE]</span></div>
+                        
+                        <div style="color: #808080; font-size: 10px;">Trade Routes:</div>
+                        <div style="color: #ff0000; font-size: 10px;">━━━ Trade 1: Efficiency-optimized</div>
+                        <div style="color: #ff0000; font-size: 10px; margin-left: 20px;">(Yellow→Red, by hedge quality)</div>
+                        <div style="color: #00ffff; font-size: 10px;">- - - Trade 2: Funding-optimized</div>
+                        <div style="color: #00ffff; font-size: 10px; margin-left: 20px;">(Cyan→Purple, by funding rate)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('clock').textContent = time;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Scroll function
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Video modal
+        function closeVideo() {
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('fries-video');
+            const stats = document.getElementById('video-stats');
+            modal.style.display = 'none';
+            video.pause();
+            video.currentTime = 0;
+            stats.style.opacity = '0';
+        }
+        
+        // Matrix rain effect
+        function createMatrixRain() {
+            const matrixRain = document.getElementById('matrix-rain');
+            const chars = '01$FRY{}[]<>/*-+USDH USDF WRECKAGE 7.4x 2.26';
+            const columns = 30;
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.style.position = 'absolute';
+                column.style.left = (i * 3.33) + '%';
+                column.style.top = '-100px';
+                column.style.color = '#00ff00';
+                column.style.fontSize = '10px';
+                column.style.whiteSpace = 'pre';
+                column.style.animation = `fall ${5 + Math.random() * 10}s linear infinite`;
+                column.style.animationDelay = Math.random() * 5 + 's';
+                
+                let text = '';
+                for (let j = 0; j < 20; j++) {
+                    text += chars[Math.floor(Math.random() * chars.length)] + '\n';
+                }
+                column.textContent = text;
+                matrixRain.appendChild(column);
+            }
+        }
+        
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-100px); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(600px); opacity: 0; }
+            }
+            @keyframes rotate3d {
+                0% { transform: perspective(1000px) rotateY(0deg); }
+                100% { transform: perspective(1000px) rotateY(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Animate terminal when video plays
+        const video = document.getElementById('fries-video');
+        const videoStats = document.getElementById('video-stats');
+        
+        video.addEventListener('play', () => {
+            createMatrixRain();
+            
+            // Make terminal glitch
+            const terminal = videoStats.querySelector('div[style*="background: rgba(0, 0, 0"]');
+            setInterval(() => {
+                if (Math.random() > 0.95) {
+                    terminal.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+                    setTimeout(() => {
+                        terminal.style.transform = 'translate(0, 0)';
+                    }, 50);
+                }
+            }, 100);
+        });
+
+        // Mascot click animation
+        const mascot = document.getElementById('mascot-icon');
+        const mouseCursor = document.getElementById('mouse-cursor');
+        let animationShown = false;
+
+        window.addEventListener('load', () => {
+            if (!animationShown) {
+                setTimeout(() => {
+                    // Show mouse cursor
+                    mouseCursor.style.display = 'block';
+                    mouseCursor.style.top = '-20px';
+                    mouseCursor.style.left = '-20px';
+                    
+                    // Animate mouse moving to center
+                    setTimeout(() => {
+                        mouseCursor.style.transition = 'all 0.8s ease-in-out';
+                        mouseCursor.style.top = '50%';
+                        mouseCursor.style.left = '50%';
+                    }, 100);
+                    
+                    // Click animation
+                    setTimeout(() => {
+                        mouseCursor.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            mouseCursor.style.transform = 'scale(1)';
+                            // Open video
+                            document.getElementById('video-modal').style.display = 'block';
+                            mouseCursor.style.display = 'none';
+                            animationShown = true;
+                        }, 150);
+                    }, 1000);
+                }, 1000);
+            }
+        });
+
+        // Manual click
+        mascot.addEventListener('click', () => {
+            document.getElementById('video-modal').style.display = 'block';
+        });
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeVideo();
+            }
+        });
+
+        console.log('USD_FRY.exe loaded successfully 🍟');
+    </script>
+</body>
+</html>
