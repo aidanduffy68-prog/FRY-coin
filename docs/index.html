@@ -316,12 +316,20 @@
         <div class="window" style="max-width: 800px; margin: 50px auto;">
             <div class="window-title">
                 ▶ fries_video.avi - Windows Media Player
-                <button onclick="closeVideo()" style="float: right; background: #c0c0c0; border: 2px outset; padding: 0 6px; cursor: pointer;">×</button>
+                <div style="float: right; display: flex; gap: 2px;">
+                    <button onclick="closeVideo()" style="background: #c0c0c0; border: 2px outset; padding: 2px 8px; cursor: pointer; font-size: 11px; font-weight: bold;">Close</button>
+                    <button onclick="closeVideo()" style="background: #c0c0c0; border: 2px outset; padding: 0 6px; cursor: pointer;">×</button>
+                </div>
             </div>
             <div class="window-content" style="padding: 0; background: black; position: relative;">
                 <video id="fries-video" controls autoplay style="width: 100%; display: block;">
                     <source src="fries-video-stock.mp4" type="video/mp4">
                 </video>
+                
+                <!-- Close hint -->
+                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); color: #00ff00; padding: 8px 12px; border: 1px solid #00ff00; font-family: 'Courier New', monospace; font-size: 11px; pointer-events: none; z-index: 10;">
+                    Press ESC or click Close to exit
+                </div>
                 
                 <!-- Matrix/Hacker Overlay -->
                 <div id="video-stats" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; font-family: 'Courier New', monospace;">
