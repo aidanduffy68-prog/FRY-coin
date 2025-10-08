@@ -299,9 +299,23 @@
 
     <!-- Taskbar -->
     <div class="navbar">
-        <div class="start-button">
+        <div class="start-button" onclick="showStartMenu()" style="position: relative;">
             <img src="fries-8bit.svg" alt="Start" style="image-rendering: pixelated;">
             <span>Start</span>
+            
+            <!-- Start Menu -->
+            <div id="start-menu" style="display: none; position: absolute; bottom: 100%; left: 0; background: #c0c0c0; border: 2px solid; border-color: white #808080 #808080 white; min-width: 200px; box-shadow: 2px 2px 0 rgba(0,0,0,0.3);">
+                <div style="background: linear-gradient(to right, #000080, #1084d0); color: white; padding: 40px 10px; writing-mode: vertical-rl; transform: rotate(180deg); font-weight: bold; font-size: 24px; float: left;">USD_FRY</div>
+                <div style="margin-left: 50px;">
+                    <div class="menu-item" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY')">📁 GitHub</div>
+                    <div class="menu-item" onclick="scrollToSection('docs')">📄 Documentation</div>
+                    <div class="menu-item" onclick="scrollToSection('metrics')">📊 Metrics</div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item" onclick="document.getElementById('mascot-icon').click()">🎬 Play Video</div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item" onclick="alert('Built by Greenhouse & Company 🍟')">ℹ️ About</div>
+                </div>
+            </div>
         </div>
         <div class="taskbar-items">
             <div class="taskbar-item active">USD_FRY.exe</div>
@@ -361,11 +375,21 @@
     </div>
 
     <script>
-        // Clock
+        // Clock with random "glitch"
         function updateClock() {
             const now = new Date();
             const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('clock').textContent = time;
+            const clockEl = document.getElementById('clock');
+            
+            // Random glitch effect (1% chance)
+            if (Math.random() < 0.01) {
+                clockEl.textContent = '13:37';
+                setTimeout(() => {
+                    clockEl.textContent = time;
+                }, 200);
+            } else {
+                clockEl.textContent = time;
+            }
         }
         updateClock();
         setInterval(updateClock, 1000);
@@ -447,6 +471,41 @@
             }, 100);
         });
 
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                document.body.style.transform = 'rotate(180deg)';
+                setTimeout(() => {
+                    document.body.style.transform = 'rotate(0deg)';
+                }, 2000);
+                konamiCode = [];
+            }
+        });
+        
+        // Random "Windows error" sound effect (visual)
+        setInterval(() => {
+            if (Math.random() < 0.005) { // 0.5% chance every interval
+                const errorBox = document.createElement('div');
+                errorBox.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #c0c0c0; border: 2px solid; border-color: white #808080 #808080 white; padding: 10px; z-index: 10000; font-family: "MS Sans Serif"; font-size: 11px; box-shadow: 2px 2px 0 rgba(0,0,0,0.3);';
+                errorBox.innerHTML = `
+                    <div style="background: #000080; color: white; padding: 2px 5px; margin: -10px -10px 10px -10px; font-weight: bold;">USD_FRY.exe</div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div style="font-size: 32px;">⚠️</div>
+                        <div>FRY minting rate increased to ${(2 + Math.random()).toFixed(2)}x</div>
+                    </div>
+                    <button onclick="this.parentElement.remove()" style="margin-top: 10px; background: #c0c0c0; border: 2px outset; padding: 2px 20px; cursor: pointer;">OK</button>
+                `;
+                document.body.appendChild(errorBox);
+                setTimeout(() => errorBox.remove(), 3000);
+            }
+        }, 10000);
+        
         // Mascot click animation
         const mascot = document.getElementById('mascot-icon');
         const mouseCursor = document.getElementById('mouse-cursor');
@@ -494,7 +553,38 @@
             }
         });
 
-        console.log('USD_FRY.exe loaded successfully 🍟');
+        // Start menu toggle
+        function showStartMenu() {
+            const menu = document.getElementById('start-menu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Close start menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const startButton = document.querySelector('.start-button');
+            const startMenu = document.getElementById('start-menu');
+            if (!startButton.contains(e.target)) {
+                startMenu.style.display = 'none';
+            }
+        });
+        
+        // Console easter eggs
+        console.log('%c USD_FRY.exe loaded successfully 🍟', 'color: #FFD700; font-size: 16px; font-weight: bold;');
+        console.log('%c Type "fry.stats()" for system info', 'color: #00ff00; font-family: monospace;');
+        
+        window.fry = {
+            stats: () => {
+                console.log('%c=== USD_FRY System Stats ===', 'color: #FFD700; font-weight: bold;');
+                console.log('Capital Efficiency: 7.4x');
+                console.log('Minting Rate: 2.26 FRY/$1');
+                console.log('Volatility Reduction: 61.5%');
+                console.log('Status: [ACTIVE]');
+                console.log('%cFor more info: https://github.com/aidanduffy68-prog/USD_FRY', 'color: #00ffff;');
+            },
+            mint: (amount) => {
+                console.log(`%c🍟 Minting ${(amount * 2.26).toFixed(2)} FRY from $${amount} wreckage...`, 'color: #FFD700;');
+            }
+        };
     </script>
 </body>
 </html>
