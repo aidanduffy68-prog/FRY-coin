@@ -83,16 +83,48 @@ Code: https://github.com/aidanduffy68-prog/USD_FRY
 
 ---
 
+---
+
+## FINAL RECOMMENDATIONS FOR MARKETING/RESEARCH ROLES
+
+### Summary (Replace "DeFi and DeAI ecosystem accelerationist...")
+
+**Recommended:**
+```
+DeFi researcher specializing in market microstructure and liquidity design. Experience building technical content, analyzing market opportunities, and developing strategic frameworks for DeFi protocols. Combines quantitative analysis with creative storytelling. Skies > runways. Seeking to relocate to New York, NY for in-office work.
+```
+
+**Alternative (more concise):**
+```
+DeFi researcher focused on market microstructure, liquidity design, and ecosystem growth. Combines quantitative analysis (Python, ML) with strategic storytelling across X, Mirror, and Discord. Seeking to relocate to New York, NY for in-office work.
+```
+
+---
+
+### Greenhouse & Company Section (Marketing-Focused)
+
+**Use this version for marketing/research roles:**
+```
+Research Engineer | Greenhouse & Company – Princeton, NJ
+March 2024 – Present
+●  Researched and positioned USD_FRY protocol: identified $50M+ daily market opportunity in DEX wreckage, developed strategic framework, and created comprehensive go-to-market strategy for native stablecoin partnerships.
+●  Produced technical marketing content: whitepaper, Mirror.xyz article, partnership pitch materials, and live demo website. Translated complex DeFi concepts into compelling narratives for institutional audiences.
+●  Conducted competitive analysis and market research across 5+ DEX venues, quantifying 7.4x capital efficiency advantage and 221% improvement over existing solutions.
+●  Built cross-functional relationships: coordinated technical development, designed user experience, and led outreach to potential partners including Hyperliquid and Aster Protocol.
+```
+
+This emphasizes research, content, and strategy over pure technical deployment.
+
+---
+
 ## My Recommendation
 
-Use the **first NEW version** (top of this file). It:
-- Shows concrete deployment (not just research)
-- Quantifies results (7.4x, 2.26x, 221%)
-- Demonstrates full-stack skills
-- Mentions production-ready deliverables
-- Keeps technical depth without overwhelming
-
-Your current version is too vague ("strategic framework", "advanced study"). The new version shows you **shipped something real**.
+Use the **marketing-focused version** above. It:
+- Emphasizes research and market analysis
+- Highlights content creation and storytelling
+- Shows strategic thinking
+- Demonstrates partnership development
+- Keeps technical credibility without overwhelming
 
 ---
 
