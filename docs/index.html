@@ -49,6 +49,7 @@
                     <p style="margin-bottom: 20px;">Turning trading losses into productive assets</p>
                     
                     <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn-win" onclick="scrollToSection('contracts')">🚀 Live Contracts</button>
                         <button class="btn-win" onclick="scrollToSection('metrics')">View Metrics</button>
                         <button class="btn-win" onclick="window.open('https://github.com/aidanduffy68-prog/USD_FRY')">GitHub</button>
                         <button class="btn-win" onclick="scrollToSection('docs')">Documentation</button>
@@ -73,6 +74,43 @@
                         <div class="stat-value">100%</div>
                         <div class="stat-label">Native Stablecoins</div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deployed Contracts Window -->
+        <div class="window" id="contracts">
+            <div class="window-title">
+                🚀 Deployed on Arbitrum Sepolia Testnet
+            </div>
+            <div class="window-content">
+                <p style="margin-bottom: 15px;">Live smart contracts verified on-chain:</p>
+                
+                <div style="font-family: 'Courier New', monospace; font-size: 11px; background: black; color: #00ff00; padding: 15px; border: 2px inset;">
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #ffff00;">USDFRYToken:</strong><br>
+                        <a href="https://sepolia.arbiscan.io/address/0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0" target="_blank" style="color: #00ffff;">0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0</a>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #ffff00;">AgentBVerifier:</strong><br>
+                        <a href="https://sepolia.arbiscan.io/address/0x859fe6A2BD2bBF62A0f526F3d11e85C60A617060" target="_blank" style="color: #00ffff;">0x859fe6A2BD2bBF62A0f526F3d11e85C60A617060</a>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #ffff00;">ConfidentialPositionVerifier:</strong><br>
+                        <a href="https://sepolia.arbiscan.io/address/0xfdB84Ab8907D8e8d9Bf81BeD078240d72437D697" target="_blank" style="color: #00ffff;">0xfdB84Ab8907D8e8d9Bf81BeD078240d72437D697</a>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #ffff00;">LiquidityRailsRouter:</strong><br>
+                        <a href="https://sepolia.arbiscan.io/address/0x2C93031141C3284FbccD4b8d1Ac0b8C60a174E23" target="_blank" style="color: #00ffff;">0x2C93031141C3284FbccD4b8d1Ac0b8C60a174E23</a>
+                    </div>
+                    <div>
+                        <strong style="color: #ffff00;">WreckageMatchingPool:</strong><br>
+                        <a href="https://sepolia.arbiscan.io/address/0xFB3EB4E31f05097145Fb883ddAC14c528Fe13785" target="_blank" style="color: #00ffff;">0xFB3EB4E31f05097145Fb883ddAC14c528Fe13785</a>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 15px; text-align: center;">
+                    <button class="btn-win" onclick="window.open('https://sepolia.arbiscan.io/address/0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0')">View on Arbiscan</button>
                 </div>
             </div>
         </div>
