@@ -1,0 +1,55 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IUSDFRYToken",
+  "sourceName": "contracts/LiquidityRailsRouter.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountUSD",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "dex",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "stablecoin",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "routingType",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "efficiencyScore",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintFromWreckage",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
