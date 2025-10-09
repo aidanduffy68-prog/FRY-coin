@@ -5,7 +5,8 @@ async function main() {
   
   const [deployer] = await hre.ethers.getSigners();
   console.log("Deploying contracts with account:", deployer.address);
-  console.log("Account balance:", (await deployer.getBalance()).toString());
+  const balance = await hre.ethers.provider.getBalance(deployer.address);
+  console.log("Account balance:", hre.ethers.formatEther(balance), "ETH");
   console.log("Network:", hre.network.name);
   console.log("\n" + "=".repeat(70) + "\n");
   
