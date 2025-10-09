@@ -21,21 +21,33 @@ class HyperliquidTestnetClient:
     
     def get_funding_rates(self) -> List[Dict]:
         """Get current funding rates for all markets"""
-        response = self.session.post(f"{self.base_url}/info", json={
-            "type": "metaAndAssetCtxs"
-        })
-        data = response.json()
-        
-        funding_rates = []
-        for ctx in data[1]:  # Asset contexts
-            funding_rates.append({
-                "asset": ctx["coin"],
-                "funding_rate": float(ctx.get("funding", 0)),
-                "open_interest": float(ctx.get("openInterest", 0)),
-                "mark_price": float(ctx.get("markPx", 0))
+        try:
+            response = self.session.post(f"{self.base_url}/info", json={
+                "type": "metaAndAssetCtxs"
             })
-        
-        return funding_rates
+            data = response.json()
+            
+            funding_rates = []
+            
+            # Handle different API response structures
+            if isinstance(data, list) and len(data) > 1:
+                contexts = data[1]
+            else:
+                contexts = data.get("assetCtxs", [])
+            
+            for ctx in contexts:
+                asset_name = ctx.get("coin") or ctx.get("name") or "UNKNOWN"
+                funding_rates.append({
+                    "asset": asset_name,
+                    "funding_rate": float(ctx.get("funding", 0)),
+                    "open_interest": float(ctx.get("openInterest", 0)),
+                    "mark_price": float(ctx.get("markPx", 0))
+                })
+            
+            return funding_rates
+        except Exception as e:
+            print(f"Error parsing funding rates: {e}")
+            return []
     
     def get_recent_liquidations(self, lookback_hours: int = 1) -> List[Dict]:
         """Get recent liquidation events"""

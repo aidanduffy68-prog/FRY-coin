@@ -1,0 +1,26 @@
+{
+  "network": "arbitrum-sepolia",
+  "rpc_url": "https://sepolia-rollup.arbitrum.io/rpc",
+  "contracts": {
+    "usdFryToken": "0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0",
+    "router": "0x2C93031141C3284FbccD4b8d1Ac0b8C60a174E23",
+    "matchingPool": "0xFB3EB4E31f05097145Fb883ddAC14c528Fe13785"
+  },
+  "dexes": {
+    "hyperliquid": {
+      "testnet": true,
+      "api_url": "https://api.hyperliquid-testnet.xyz",
+      "ws_url": "wss://api.hyperliquid-testnet.xyz/ws"
+    }
+  },
+  "capital": {
+    "initial_usdc": 10000,
+    "max_position_size": 5000,
+    "rails_allocation": 0.7,
+    "agent_b_reserve": 0.3
+  },
+  "monitoring": {
+    "check_interval_seconds": 60,
+    "log_stats_interval_seconds": 600
+  }
+}
