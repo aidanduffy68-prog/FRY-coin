@@ -53,34 +53,8 @@ Add to `README.md`:
 
 ---
 
-### 4. Create LinkedIn Post (15 min)
-**Why:** Visibility to recruiters, shows you ship
-
-```
-Just deployed USD_FRY to Arbitrum testnet 🍟
-
-Built DeFi infrastructure for wreckage absorption:
-• 5 smart contracts (Solidity)
-• ML-enhanced market making (Python + PyTorch)
-• zkML privacy layer (EZKL)
-• Liquidity routing engine
-
-Results:
-• 7.4x capital efficiency vs traditional approaches
-• 2.26 FRY per $1 wreckage processed
-• 61.5% funding rate volatility reduction
-
-Tech stack: Solidity, Python, FastAPI, Hardhat, ethers.js, PyTorch, OpenZeppelin
-
-Live demo: https://aidanduffy68-prog.github.io/USD_FRY/
-Code: https://github.com/aidanduffy68-prog/USD_FRY
-
-Built for native stablecoin DEXes (Hyperliquid, Aster)
-
-#DeFi #Blockchain #Solidity #Python #Web3
-```
-
-**Post it, then move on.**
+### 4. ~~Create LinkedIn Post~~ (SKIP - Already posted)
+**Save LinkedIn content for later this week**
 
 ---
 
