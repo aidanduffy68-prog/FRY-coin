@@ -48,7 +48,7 @@ Built with real smart contracts on Arbitrum Sepolia. Turn your L's into W's (kin
 ## Option 3: Maximum Honesty (Shortened)
 Look, we've all been there.
 
-You longed BTC at $69k. You thought Solana was different. You bought FARTCOIN.
+You longed BTC at 'open skies'. You thought Worldcoin was different. You longed PUMP after ICO.
 
 I built a place where you can finally be honest about it:
 https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
