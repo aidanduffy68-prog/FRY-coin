@@ -248,6 +248,44 @@
             height: 100%;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
         }
+
+        .coin-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .coin-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .coin-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(102, 126, 234, 0.6);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .coin-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .coin-emoji {
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -266,6 +304,24 @@
         </div>
         <div class="content">
             <h2>Wreckage Processing Simulator</h2>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Select Your Coin:</label>
+                <div class="coin-selector">
+                    <button class="coin-btn active" onclick="selectCoin('BTC', this)">
+                        <span class="coin-emoji">₿</span> BTC
+                    </button>
+                    <button class="coin-btn" onclick="selectCoin('SOL', this)">
+                        <span class="coin-emoji">◎</span> SOL
+                    </button>
+                    <button class="coin-btn" onclick="selectCoin('XRP', this)">
+                        <span class="coin-emoji">✕</span> XRP
+                    </button>
+                    <button class="coin-btn" onclick="selectCoin('FARTCOIN', this)">
+                        <span class="coin-emoji">💨</span> FARTCOIN
+                    </button>
+                </div>
+            </div>
             
             <div style="margin-bottom: 20px;">
                 <label style="display: block; margin-bottom: 8px; font-weight: 500;">Enter Wreckage Amount ($):</label>
@@ -323,6 +379,7 @@
         let totalFry = 0;
         let totalWreckage = 0;
         let contractCount = 5;
+        let selectedCoin = 'BTC';
 
         function addTerminalLine(text, delay = 0) {
             setTimeout(() => {
@@ -386,6 +443,25 @@
             });
         });
 
+        function selectCoin(coin, button) {
+            selectedCoin = coin;
+            
+            // Update button states
+            document.querySelectorAll('.coin-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const messages = {
+                'BTC': '₿ Bitcoin wreckage detected... probably longed at $69k',
+                'SOL': '◎ Solana wreckage incoming... network congestion strikes again',
+                'XRP': '✕ XRP wreckage identified... still waiting for that SEC ruling',
+                'FARTCOIN': '💨 FARTCOIN wreckage found... this one was inevitable tbh'
+            };
+            
+            addTerminalLine('');
+            addTerminalLine('> ' + messages[coin]);
+            addTerminalLine('> Connecting to Hyperliquid... jk we\'re just vibing');
+        }
+
         function mascotClick() {
             const messages = [
                 '🍟 Keep processing wreckage!',
@@ -395,7 +471,11 @@
                 '🎯 Agent B is watching...',
                 '🔥 Wreckage = Opportunity',
                 '💰 2.26 FRY per $1!',
-                '🌟 zkML privacy enabled!'
+                '🌟 zkML privacy enabled!',
+                '✨ Hyperliquid would be proud',
+                '🦄 This is so 2006 core',
+                '💅 Serving looks AND liquidity',
+                '🎀 Wreckage never looked so cute'
             ];
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
             addTerminalLine('');
@@ -403,10 +483,15 @@
         }
 
         function processWreckage(amount) {
-            addTerminalLine('> Processing $' + amount.toLocaleString() + ' wreckage...');
+            addTerminalLine('> Processing $' + amount.toLocaleString() + ' ' + selectedCoin + ' wreckage...');
             addTerminalLine('> Routing through tier 1: P2P matching...', 300);
             addTerminalLine('> Routing through tier 2: Liquidity rails...', 600);
-            addTerminalLine('> Calculating optimal path...', 900);
+            
+            if (selectedCoin === 'FARTCOIN') {
+                addTerminalLine('> lmao you actually picked FARTCOIN', 900);
+            } else {
+                addTerminalLine('> Calculating optimal path...', 900);
+            }
             
             const fryAmount = Math.round(amount * 2.26);
             
