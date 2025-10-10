@@ -29,6 +29,8 @@
 
 **Live Resources:**
 - Website: https://aidanduffy68-prog.github.io/USD_FRY/
+- Interactive Demo: https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
+- Mirror: https://mirror.xyz/0xf551aF8d5373B042DBB9F0933C59213B534174e4
 - GitHub: https://github.com/aidanduffy68-prog/USD_FRY
 - Contracts: https://sepolia.arbiscan.io/address/0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0
 
