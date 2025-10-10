@@ -1,0 +1,20 @@
+{
+  "name": "fry-live-market-service",
+  "version": "1.0.0",
+  "description": "Live market data aggregation service for USD_FRY wreckage processing",
+  "main": "live_market_service.js",
+  "scripts": {
+    "start": "node live_market_service.js",
+    "dev": "nodemon live_market_service.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "ws": "^8.14.2",
+    "node-cron": "^3.0.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
