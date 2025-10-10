@@ -387,10 +387,11 @@
             </div>
         </div>
         <div class="content">
-            <h2>Wreckage Processing Simulator</h2>
+            <h2>💀 Wreckage Processing Simulator 💀</h2>
+            <p style="margin-bottom: 15px; font-style: italic; color: #666;">turn your L's into W's (kinda)</p>
             
             <div style="margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Select Your Coin:</label>
+                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Which coin rekt you today?</label>
                 <div class="coin-selector">
                     <button class="coin-btn active" onclick="selectCoin('BTC', this)">
                         <span class="coin-emoji">₿</span> BTC
@@ -408,7 +409,7 @@
             </div>
             
             <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Enter Wreckage Amount ($):</label>
+                <label style="display: block; margin-bottom: 8px; font-weight: 500;">How much did you lose? (be honest)</label>
                 <div style="display: flex; gap: 10px; align-items: center;">
                     <input type="number" id="customAmount" placeholder="Enter amount..." 
                            style="flex: 1; padding: 10px; border: 2px solid rgba(102, 126, 234, 0.3); border-radius: 8px; font-size: 14px;"
@@ -418,18 +419,18 @@
             </div>
             
             <div class="controls">
-                <button class="button" onclick="processWreckage(1000)">Quick: $1K</button>
-                <button class="button" onclick="processWreckage(5000)">Quick: $5K</button>
-                <button class="button" onclick="processWreckage(10000)">Quick: $10K</button>
-                <button class="button" onclick="deployContract()">Deploy Contract</button>
-                <button class="button" onclick="clearTerminal()">Clear Log</button>
+                <button class="button" onclick="processWreckage(1000)">baby loss ($1K)</button>
+                <button class="button" onclick="processWreckage(5000)">medium rekt ($5K)</button>
+                <button class="button" onclick="processWreckage(10000)">absolutely cooked ($10K)</button>
+                <button class="button" onclick="deployContract()">Deploy Contract (why not)</button>
+                <button class="button" onclick="clearTerminal()">hide evidence</button>
             </div>
 
             <div class="terminal" id="terminal">
-                <div class="terminal-line">USD_FRY Protocol v1.0 - Initialized</div>
-                <div class="terminal-line">Connected to Arbitrum Sepolia testnet</div>
-                <div class="terminal-line">5 contracts deployed and operational</div>
-                <div class="terminal-line">Ready to process wreckage...<span class="blink">_</span></div>
+                <div class="terminal-line">USD_FRY Protocol v1.0 - Initialized (somehow)</div>
+                <div class="terminal-line">Connected to Arbitrum Sepolia testnet (it's free don't worry)</div>
+                <div class="terminal-line">5 contracts deployed and operational (trust)</div>
+                <div class="terminal-line">Ready to process your wreckage... we've seen worse<span class="blink">_</span></div>
             </div>
 
             <div class="progress-bar">
@@ -535,15 +536,15 @@
             button.classList.add('active');
             
             const messages = {
-                'BTC': '₿ Bitcoin wreckage detected... probably longed at $69k',
-                'SOL': '◎ Solana wreckage incoming... network congestion strikes again',
-                'XRP': '✕ XRP wreckage identified... still waiting for that SEC ruling',
-                'FARTCOIN': '💨 FARTCOIN wreckage found... this one was inevitable tbh'
+                'BTC': '₿ Bitcoin wreckage detected... let me guess, longed at $69k?',
+                'SOL': '◎ Solana wreckage incoming... "but the ecosystem" you said',
+                'XRP': '✕ XRP wreckage identified... bro the SEC case is TOTALLY gonna settle',
+                'FARTCOIN': '💨 FARTCOIN wreckage found... honestly respect for even trying'
             };
             
             addTerminalLine('');
             addTerminalLine('> ' + messages[coin]);
-            addTerminalLine('> Connecting to Hyperliquid... jk we\'re just vibing');
+            addTerminalLine('> Connecting to Hyperliquid... jk we\'re just vibing ✨');
         }
 
         let jeffShown = false;
@@ -556,18 +557,22 @@
             }
 
             const messages = [
-                '🍟 Keep processing wreckage!',
-                '💎 FRY tokens are minting...',
-                '🚀 7.4x capital efficiency!',
-                '⚡ Liquidity rails active!',
-                '🎯 Agent B is watching...',
-                '🔥 Wreckage = Opportunity',
-                '💰 2.26 FRY per $1!',
-                '🌟 zkML privacy enabled!',
-                '✨ Hyperliquid would be proud',
-                '🦄 This is so 2006 core',
-                '💅 Serving looks AND liquidity',
-                '🎀 Wreckage never looked so cute'
+                '🍟 Keep processing wreckage! (cope harder)',
+                '💎 FRY tokens are minting... (they\'re not real)',
+                '🚀 7.4x capital efficiency! (trust me bro)',
+                '⚡ Liquidity rails active! (whatever that means)',
+                '🎯 Agent B is watching... (who is Agent B)',
+                '🔥 Wreckage = Opportunity (copium)',
+                '💰 2.26 FRY per $1! (not financial advice)',
+                '🌟 zkML privacy enabled! (your losses are safe)',
+                '✨ Hyperliquid would be proud (probably not)',
+                '🦄 This is so 2006 core (rawr xD)',
+                '💅 Serving looks AND liquidity (slay)',
+                '🎀 Wreckage never looked so cute (bestie...)',
+                '🐬 Dolphins can\'t save you now',
+                '💸 At least you tried',
+                '🎭 my name jeff (again)',
+                '🌈 Friendship is more important than money'
             ];
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
             addTerminalLine('');
@@ -607,7 +612,11 @@
             addTerminalLine('> Routing through tier 2: Liquidity rails...', 600);
             
             if (selectedCoin === 'FARTCOIN') {
-                addTerminalLine('> lmao you actually picked FARTCOIN', 900);
+                addTerminalLine('> lmao you actually picked FARTCOIN 💀', 900);
+            } else if (amount > 50000) {
+                addTerminalLine('> bro... are you okay?', 900);
+            } else if (amount < 100) {
+                addTerminalLine('> aww that\'s cute', 900);
             } else {
                 addTerminalLine('> Calculating optimal path...', 900);
             }
@@ -619,9 +628,9 @@
                 totalWreckage += amount;
                 updateMetrics();
                 
-                addTerminalLine('✓ Minted ' + fryAmount.toLocaleString() + ' FRY tokens');
-                addTerminalLine('✓ Transaction confirmed on Arbitrum Sepolia');
-                addTerminalLine('> System ready<span class="blink">_</span>');
+                addTerminalLine('✓ Minted ' + fryAmount.toLocaleString() + ' FRY tokens (congrats i guess)');
+                addTerminalLine('✓ Transaction confirmed on Arbitrum Sepolia (it\'s testnet lol)');
+                addTerminalLine('> System ready (for more losses)<span class="blink">_</span>');
                 
                 animateProgress(Math.min((totalWreckage / 50000) * 100, 100));
             }, 1200);
