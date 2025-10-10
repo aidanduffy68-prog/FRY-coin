@@ -45,27 +45,19 @@ Built with real smart contracts on Arbitrum Sepolia. Turn your L's into W's (kin
 
 ---
 
-## Option 3: Maximum Honesty
+## Option 3: Maximum Honesty (Shortened)
 Look, we've all been there.
 
-You longed BTC at $69k. You thought Solana was different. You're still waiting on that XRP SEC ruling. You... bought FARTCOIN.
+You longed BTC at $69k. You thought Solana was different. You bought FARTCOIN.
 
-I built a place where you can finally be honest about it: https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
+I built a place where you can finally be honest about it:
+https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
 
 "How much did you lose? (be honest)"
 
-Enter the amount. Pick your coin. Watch real Arbitrum contracts turn your wreckage into FRY tokens while the terminal gently roasts your life choices.
+Pick your coin. Enter the damage. Watch real Arbitrum contracts turn your wreckage into FRY tokens while the terminal roasts your life choices.
 
 It's testnet. No real money. Just real catharsis.
-
-Features:
-• Brutally honest labels ("Which coin rekt you today?")
-• Amount reactions (>$50k triggers "WHAT DID YOU DO")
-• Coin-specific roasts for every bad decision
-• Frutiger Aero aesthetic because 2006 was simpler
-• Random Jeff meme popups (you're welcome)
-
-Sometimes you just need to process your losses with a demo that gets it.
 
 #DeFi #Crypto #Arbitrum #TradingLosses #Web3
 
