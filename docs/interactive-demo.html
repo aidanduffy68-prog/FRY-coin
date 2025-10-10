@@ -287,9 +287,74 @@
         .coin-emoji {
             font-size: 16px;
         }
+
+        .jeff-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 400px;
+            max-width: 90vw;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-align: center;
+        }
+
+        .jeff-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .jeff-popup img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .jeff-popup-close {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 24px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .jeff-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .jeff-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
     </style>
 </head>
 <body>
+    <!-- Jeff Popup -->
+    <div class="jeff-overlay" id="jeffOverlay" onclick="closeJeff()"></div>
+    <div class="jeff-popup" id="jeffPopup">
+        <img src="Jeff meme.png" alt="Jeff">
+        <p style="font-size: 16px; margin: 10px 0; font-weight: 500;">my name jeff</p>
+        <button class="jeff-popup-close" onclick="closeJeff()">ok jeff</button>
+    </div>
+
     <!-- Floating FRY Mascot -->
     <div class="mascot-popup" onclick="mascotClick()">
         <img src="fries-8bit.svg" alt="FRY Mascot" style="image-rendering: pixelated;">
@@ -463,7 +528,15 @@
             addTerminalLine('> Connecting to Hyperliquid... jk we\'re just vibing');
         }
 
+        let jeffShown = false;
+
         function mascotClick() {
+            // 15% chance to show Jeff instead
+            if (!jeffShown && Math.random() < 0.15) {
+                showJeff();
+                return;
+            }
+
             const messages = [
                 '🍟 Keep processing wreckage!',
                 '💎 FRY tokens are minting...',
@@ -482,6 +555,33 @@
             addTerminalLine('');
             addTerminalLine(randomMessage);
         }
+
+        function showJeff() {
+            jeffShown = true;
+            document.getElementById('jeffOverlay').classList.add('show');
+            document.getElementById('jeffPopup').classList.add('show');
+            addTerminalLine('');
+            addTerminalLine('> my name jeff');
+        }
+
+        function closeJeff() {
+            document.getElementById('jeffOverlay').classList.remove('show');
+            document.getElementById('jeffPopup').classList.remove('show');
+        }
+
+        // Random Jeff popup every 30-60 seconds
+        function randomJeffPopup() {
+            const delay = Math.random() * 30000 + 30000; // 30-60 seconds
+            setTimeout(() => {
+                if (Math.random() < 0.3) { // 30% chance
+                    showJeff();
+                }
+                randomJeffPopup(); // Schedule next one
+            }, delay);
+        }
+
+        // Start random Jeff popups after page load
+        setTimeout(randomJeffPopup, 15000); // First one after 15 seconds
 
         function processWreckage(amount) {
             addTerminalLine('> Processing $' + amount.toLocaleString() + ' ' + selectedCoin + ' wreckage...');
