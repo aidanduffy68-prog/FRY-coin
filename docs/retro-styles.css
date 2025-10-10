@@ -36,59 +36,73 @@ body {
     padding: 20px;
 }
 
-/* Windows 95 Window Style */
+/* Glassmorphism Window Style */
 .window {
-    background: var(--win-gray);
-    border: 2px solid;
-    border-color: var(--win-light) var(--win-darker) var(--win-darker) var(--win-light);
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
     margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.window:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
 .window-title {
-    background: linear-gradient(to right, var(--win-blue), #1084d0);
+    background: var(--primary-gradient);
     color: white;
-    padding: 3px 5px;
-    font-weight: bold;
-    font-size: 11px;
+    padding: 14px 20px;
+    font-weight: 600;
+    font-size: 15px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .window-title img {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
 }
 
 .window-content {
-    padding: 10px;
-    background: var(--win-gray);
+    padding: 24px;
+    background: var(--glass-bg);
 }
 
-/* Buttons */
+/* Modern Buttons */
 .btn-win {
-    background: var(--win-gray);
-    border: 2px solid;
-    border-color: var(--win-light) var(--win-darker) var(--win-darker) var(--win-light);
-    padding: 4px 12px;
-    font-family: 'MS Sans Serif', sans-serif;
-    font-size: 11px;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
-    color: var(--win-darker);
-    min-width: 75px;
+    color: white;
+    min-width: 120px;
     text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .btn-win:active {
-    border-color: var(--win-darker) var(--win-light) var(--win-light) var(--win-darker);
-    padding: 5px 11px 3px 13px;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 .btn-win:hover {
-    background: #d4d0c8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
 }
 
 /* Navbar */
