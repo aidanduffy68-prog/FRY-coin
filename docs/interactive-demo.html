@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USD_FRY - Interactive Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #008080;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .window {
+            background: #c0c0c0;
+            border: 2px outset #fff;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+        }
+
+        .title-bar {
+            background: linear-gradient(to right, #000080, #1084d0);
+            color: white;
+            padding: 4px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .title-buttons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .title-button {
+            width: 16px;
+            height: 14px;
+            background: #c0c0c0;
+            border: 1px outset #fff;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 20px;
+            background: #c0c0c0;
+        }
+
+        .terminal {
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            font-size: 14px;
+            border: 2px inset #808080;
+            min-height: 200px;
+            margin: 10px 0;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .terminal-line {
+            margin: 4px 0;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .button {
+            background: #c0c0c0;
+            border: 2px outset #fff;
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        .button:active {
+            border-style: inset;
+        }
+
+        .button:disabled {
+            color: #808080;
+            cursor: not-allowed;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .metric {
+            background: #fff;
+            border: 2px inset #808080;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            color: #000080;
+            font-weight: bold;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #000;
+        }
+
+        .progress-bar {
+            background: #fff;
+            border: 2px inset #808080;
+            height: 30px;
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #000080;
+            height: 100%;
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        h2 {
+            color: #000080;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span>🍟 USD_FRY.exe - Interactive Demo</span>
+            <div class="title-buttons">
+                <div class="title-button">_</div>
+                <div class="title-button">□</div>
+                <div class="title-button">X</div>
+            </div>
+        </div>
+        <div class="content">
+            <h2>Wreckage Processing Simulator</h2>
+            
+            <div class="controls">
+                <button class="button" onclick="processWreckage(1000)">Process $1,000</button>
+                <button class="button" onclick="processWreckage(5000)">Process $5,000</button>
+                <button class="button" onclick="processWreckage(10000)">Process $10,000</button>
+                <button class="button" onclick="deployContract()">Deploy Contract</button>
+                <button class="button" onclick="clearTerminal()">Clear Log</button>
+            </div>
+
+            <div class="terminal" id="terminal">
+                <div class="terminal-line">USD_FRY Protocol v1.0 - Initialized</div>
+                <div class="terminal-line">Connected to Arbitrum Sepolia testnet</div>
+                <div class="terminal-line">5 contracts deployed and operational</div>
+                <div class="terminal-line">Ready to process wreckage...<span class="blink">_</span></div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress" style="width: 0%">
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                <div class="metric">
+                    <div class="metric-value" id="fry-minted">0</div>
+                    <div class="metric-label">FRY Minted</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="wreckage-processed">$0</div>
+                    <div class="metric-label">Wreckage Processed</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="efficiency">2.26x</div>
+                    <div class="metric-label">Efficiency Rate</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="contracts">5</div>
+                    <div class="metric-label">Contracts Active</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalFry = 0;
+        let totalWreckage = 0;
+        let contractCount = 5;
+
+        function addTerminalLine(text, delay = 0) {
+            setTimeout(() => {
+                const terminal = document.getElementById('terminal');
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                line.textContent = text;
+                terminal.appendChild(line);
+                terminal.scrollTop = terminal.scrollHeight;
+            }, delay);
+        }
+
+        function animateProgress(targetPercent, duration = 2000) {
+            const progressBar = document.getElementById('progress');
+            const progressText = document.getElementById('progress-text');
+            let start = null;
+            const startPercent = parseInt(progressBar.style.width) || 0;
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const currentPercent = startPercent + (targetPercent - startPercent) * progress;
+                
+                progressBar.style.width = currentPercent + '%';
+                progressText.textContent = Math.round(currentPercent) + '%';
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        function updateMetrics() {
+            document.getElementById('fry-minted').textContent = totalFry.toLocaleString();
+            document.getElementById('wreckage-processed').textContent = '$' + totalWreckage.toLocaleString();
+            document.getElementById('contracts').textContent = contractCount;
+        }
+
+        function processWreckage(amount) {
+            addTerminalLine('> Processing $' + amount.toLocaleString() + ' wreckage...');
+            addTerminalLine('> Routing through tier 1: P2P matching...', 300);
+            addTerminalLine('> Routing through tier 2: Liquidity rails...', 600);
+            addTerminalLine('> Calculating optimal path...', 900);
+            
+            const fryAmount = Math.round(amount * 2.26);
+            
+            setTimeout(() => {
+                totalFry += fryAmount;
+                totalWreckage += amount;
+                updateMetrics();
+                
+                addTerminalLine('✓ Minted ' + fryAmount.toLocaleString() + ' FRY tokens');
+                addTerminalLine('✓ Transaction confirmed on Arbitrum Sepolia');
+                addTerminalLine('> System ready<span class="blink">_</span>');
+                
+                animateProgress(Math.min((totalWreckage / 50000) * 100, 100));
+            }, 1200);
+        }
+
+        function deployContract() {
+            addTerminalLine('> Deploying new contract...');
+            addTerminalLine('> Compiling Solidity 0.8.19...', 300);
+            addTerminalLine('> Estimating gas...', 600);
+            addTerminalLine('> Broadcasting transaction...', 900);
+            
+            setTimeout(() => {
+                contractCount++;
+                updateMetrics();
+                const address = '0x' + Math.random().toString(16).substr(2, 40);
+                addTerminalLine('✓ Contract deployed at ' + address);
+                addTerminalLine('✓ Gas used: ' + Math.floor(Math.random() * 500000 + 200000).toLocaleString());
+                addTerminalLine('> System ready<span class="blink">_</span>');
+            }, 1200);
+        }
+
+        function clearTerminal() {
+            const terminal = document.getElementById('terminal');
+            terminal.innerHTML = '<div class="terminal-line">Terminal cleared<span class="blink">_</span></div>';
+        }
+
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiPattern.join(',')) {
+                addTerminalLine('');
+                addTerminalLine('🍟 EASTER EGG ACTIVATED 🍟');
+                addTerminalLine('> Unlocking hidden features...');
+                addTerminalLine('> 7.4x capital efficiency engaged');
+                addTerminalLine('> Agent B market maker online');
+                addTerminalLine('> zkML privacy layer activated');
+                totalFry += 10000;
+                updateMetrics();
+            }
+        });
+    </script>
+</body>
+</html>
