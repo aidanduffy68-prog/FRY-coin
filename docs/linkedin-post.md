@@ -64,13 +64,13 @@ It's testnet. No real money. Just real catharsis.
 ---
 
 ## Option 4: For Mirror Article (Recommended)
-Just published on Mirror:
+Just published on Mirror: 📝
 
 "How Much Did You Lose? (Be Honest)"
 
-You longed BTC at 'open skies'. You thought Worldcoin was different. You longed PUMP after ICO.
+You longed BTC at 'open skies' 🚀. You thought Worldcoin was different 👁️. You longed PUMP after ICO 💀.
 
-I built a therapy session for bad trades on Arbitrum testnet. The demo roasts you while processing your wreckage into FRY tokens.
+I built a therapy session for bad trades on Arbitrum testnet. The demo roasts you while processing your wreckage into FRY tokens 🍟.
 
 Read: https://mirror.xyz/0xf551aF8d5373B042DBB9F0933C59213B534174e4/qKGHrO_zUC17G-CpmXik3tJ42M33-36T_qxFw5CCVt4
 
