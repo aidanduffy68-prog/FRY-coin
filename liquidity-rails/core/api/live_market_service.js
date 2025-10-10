@@ -235,6 +235,27 @@ async function generatePredictionMarkets() {
 }
 
 /**
+ * Detect market conditions (for context, not marketing)
+ */
+function detectMarketConditions(wreckageData) {
+    const totalLiq = wreckageData.reduce((sum, coin) => sum + coin.liquidations, 0);
+    const avgPriceChange = wreckageData.reduce((sum, coin) => sum + coin.priceChange, 0) / wreckageData.length;
+    
+    // Just track conditions, don't make a big deal about it
+    if (totalLiq > 500e6 && avgPriceChange < -10) {
+        return {
+            volatility: 'high',
+            message: 'Market volatility detected'
+        };
+    }
+    
+    return {
+        volatility: 'normal',
+        message: null
+    };
+}
+
+/**
  * Update all live data
  */
 async function updateLiveData() {
@@ -245,6 +266,9 @@ async function updateLiveData() {
         liveData.recentLiquidations = await getRecentLiquidations();
         liveData.activePredictionMarkets = await generatePredictionMarkets();
         liveData.lastUpdate = new Date().toISOString();
+        
+        // Quietly track market conditions
+        liveData.marketConditions = detectMarketConditions(liveData.trendingWreckage);
         
         console.log(`Updated: ${liveData.trendingWreckage.length} coins, ${liveData.activePredictionMarkets.length} markets`);
     } catch (error) {
