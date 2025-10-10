@@ -237,10 +237,20 @@
         <div class="content">
             <h2>Wreckage Processing Simulator</h2>
             
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Enter Wreckage Amount ($):</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="number" id="customAmount" placeholder="Enter amount..." 
+                           style="flex: 1; padding: 10px; border: 2px solid rgba(102, 126, 234, 0.3); border-radius: 8px; font-size: 14px;"
+                           value="1000" min="1" max="1000000">
+                    <button class="button" onclick="processCustomAmount()">Process</button>
+                </div>
+            </div>
+            
             <div class="controls">
-                <button class="button" onclick="processWreckage(1000)">Process $1,000</button>
-                <button class="button" onclick="processWreckage(5000)">Process $5,000</button>
-                <button class="button" onclick="processWreckage(10000)">Process $10,000</button>
+                <button class="button" onclick="processWreckage(1000)">Quick: $1K</button>
+                <button class="button" onclick="processWreckage(5000)">Quick: $5K</button>
+                <button class="button" onclick="processWreckage(10000)">Quick: $10K</button>
                 <button class="button" onclick="deployContract()">Deploy Contract</button>
                 <button class="button" onclick="clearTerminal()">Clear Log</button>
             </div>
@@ -259,19 +269,19 @@
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
-                <div class="metric">
+                <div class="metric" style="cursor: pointer;" onclick="showMetricDetails('fry')">
                     <div class="metric-value" id="fry-minted">0</div>
                     <div class="metric-label">FRY Minted</div>
                 </div>
-                <div class="metric">
+                <div class="metric" style="cursor: pointer;" onclick="showMetricDetails('wreckage')">
                     <div class="metric-value" id="wreckage-processed">$0</div>
                     <div class="metric-label">Wreckage Processed</div>
                 </div>
-                <div class="metric">
+                <div class="metric" style="cursor: pointer;" onclick="showMetricDetails('efficiency')">
                     <div class="metric-value" id="efficiency">2.26x</div>
                     <div class="metric-label">Efficiency Rate</div>
                 </div>
-                <div class="metric">
+                <div class="metric" style="cursor: pointer;" onclick="showMetricDetails('contracts')">
                     <div class="metric-value" id="contracts">5</div>
                     <div class="metric-label">Contracts Active</div>
                 </div>
@@ -321,7 +331,30 @@
             document.getElementById('fry-minted').textContent = totalFry.toLocaleString();
             document.getElementById('wreckage-processed').textContent = '$' + totalWreckage.toLocaleString();
             document.getElementById('contracts').textContent = contractCount;
+            
+            // Update efficiency based on total processed
+            const efficiency = totalWreckage > 0 ? (totalFry / totalWreckage).toFixed(2) : 2.26;
+            document.getElementById('efficiency').textContent = efficiency + 'x';
         }
+
+        function processCustomAmount() {
+            const input = document.getElementById('customAmount');
+            const amount = parseInt(input.value) || 1000;
+            if (amount < 1 || amount > 1000000) {
+                addTerminalLine('❌ Error: Amount must be between $1 and $1,000,000');
+                return;
+            }
+            processWreckage(amount);
+        }
+
+        // Allow Enter key to process
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('customAmount').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    processCustomAmount();
+                }
+            });
+        });
 
         function processWreckage(amount) {
             addTerminalLine('> Processing $' + amount.toLocaleString() + ' wreckage...');
@@ -363,6 +396,17 @@
         function clearTerminal() {
             const terminal = document.getElementById('terminal');
             terminal.innerHTML = '<div class="terminal-line">Terminal cleared<span class="blink">_</span></div>';
+        }
+
+        function showMetricDetails(type) {
+            const details = {
+                fry: 'FRY tokens are minted at 2.26x rate per $1 of wreckage processed through the liquidity rails system.',
+                wreckage: 'Total trading losses processed and converted into productive FRY tokens via the three-tier routing system.',
+                efficiency: 'Current minting efficiency. Higher values indicate better routing through P2P matching and liquidity rails.',
+                contracts: 'Number of smart contracts deployed and active on Arbitrum Sepolia testnet.'
+            };
+            addTerminalLine('');
+            addTerminalLine('ℹ️  ' + details[type]);
         }
 
         // Easter egg: Konami code
