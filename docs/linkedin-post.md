@@ -63,6 +63,21 @@ It's testnet. No real money. Just real catharsis.
 
 ---
 
+## Option 4: For Mirror Article (Recommended)
+Just published on Mirror:
+
+"How Much Did You Lose? (Be Honest)"
+
+I built a therapy session for bad trades on Arbitrum testnet. The demo roasts you while processing your wreckage into FRY tokens.
+
+Read: [Mirror link]
+
+Try the demo: https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
+
+#DeFi #Crypto #Arbitrum #Web3
+
+---
+
 ## Option 2: More Professional (but still fun)
 Introducing the USD_FRY Interactive Demo 🍟
 
