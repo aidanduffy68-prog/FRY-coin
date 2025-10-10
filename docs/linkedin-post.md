@@ -68,9 +68,11 @@ Just published on Mirror:
 
 "How Much Did You Lose? (Be Honest)"
 
+You longed BTC at 'open skies'. You thought Worldcoin was different. You longed PUMP after ICO.
+
 I built a therapy session for bad trades on Arbitrum testnet. The demo roasts you while processing your wreckage into FRY tokens.
 
-Read: [Mirror link]
+Read: https://mirror.xyz/0xf551aF8d5373B042DBB9F0933C59213B534174e4/qKGHrO_zUC17G-CpmXik3tJ42M33-36T_qxFw5CCVt4
 
 Try the demo: https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
 
