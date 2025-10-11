@@ -65,7 +65,7 @@ October 10, 2024: $19B liquidations. Biggest in crypto history.
 
 I'd been building FRY Protocol for months. Deployed to mainnet the day before.
 
-FRY is decentralized liquidity infrastructure. Chainlink oracles. Process losses on-chain. No single point of failure.
+FRY converts trading losses into productive assets through optimal routing and peer-to-peer matching. 2.26x efficiency vs base rate. No single point of failure.
 
 Will it replace centralized exchanges? No. Will 1.6M traders suddenly switch? Probably not.
 

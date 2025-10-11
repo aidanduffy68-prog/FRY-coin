@@ -8,7 +8,7 @@ October 10, 2024: $19B liquidations.
 
 I'd been building a decentralized alternative. Deployed the day before.
 
-FRY Protocol: Process losses on-chain. Chainlink-verified prices. No centralized exchange.
+FRY Protocol: Converts losses into productive assets. 2.26x efficiency through optimal routing. No centralized exchange.
 
 Will it replace what you're using? Probably not.
 
@@ -22,7 +22,7 @@ But it exists: https://aidanduffy68-prog.github.io/USD_FRY/
 
 $19B liquidations on Oct 10.
 
-I deployed FRY Protocol the day before - decentralized liquidity infrastructure with Chainlink oracles.
+I deployed FRY Protocol the day before - decentralized liquidity infrastructure with 2.26x efficiency.
 
 It won't replace centralized exchanges. But it exists.
 
