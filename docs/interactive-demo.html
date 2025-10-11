@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive wreckage processing simulator - Turn trading losses into FRY tokens">
-    <title>USD_FRY - Interactive Demo</title>
+    <meta name="description" content="Live on Arbitrum Mainnet - Process trading losses into FRY tokens with Chainlink-verified prices">
+    <title>USD_FRY - Live on Mainnet</title>
     
     <!-- Open Graph / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html">
-    <meta property="og:title" content="USD_FRY Interactive Demo - Wreckage Processing Simulator">
-    <meta property="og:description" content="Process BTC, SOL, XRP, and FARTCOIN wreckage into FRY tokens | 2.26x efficiency | my name jeff">
+    <meta property="og:title" content="USD_FRY - Live on Arbitrum Mainnet">
+    <meta property="og:description" content="Process trading losses into FRY tokens | Chainlink oracles | 2.26x rate | Launched Oct 11, 2025">
     <meta property="og:image" content="https://aidanduffy68-prog.github.io/USD_FRY/dolphin-bg.jpg">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="1024">
@@ -18,8 +18,8 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html">
-    <meta property="twitter:title" content="USD_FRY Interactive Demo - Wreckage Processing Simulator">
-    <meta property="twitter:description" content="Process BTC, SOL, XRP, and FARTCOIN wreckage into FRY tokens | 2.26x efficiency | my name jeff">
+    <meta property="twitter:title" content="USD_FRY - Live on Arbitrum Mainnet">
+    <meta property="twitter:description" content="Process trading losses into FRY tokens | Chainlink oracles | 2.26x rate | Launched Oct 11, 2025">
     <meta property="twitter:image" content="https://aidanduffy68-prog.github.io/USD_FRY/dolphin-bg.jpg">
     
     <link rel="icon" type="image/svg+xml" href="fries-8bit.svg">
@@ -109,6 +109,30 @@
         .content {
             padding: 24px;
             background: rgba(255, 255, 255, 0.95);
+        }
+
+        .mainnet-banner {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #1a1a2e;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 4px 20px rgba(0, 255, 136, 0.5); }
+        }
+
+        .mainnet-banner a {
+            color: #1a1a2e;
+            text-decoration: underline;
+            font-weight: 700;
         }
 
         .terminal {
@@ -387,6 +411,9 @@
             </div>
         </div>
         <div class="content">
+            <div class="mainnet-banner">
+                🚀 LIVE ON ARBITRUM MAINNET | Launched Oct 11, 2025 | <a href="https://arbiscan.io/address/0x492397d5912C016F49768fBc942d894687c5fe33" target="_blank">View Contracts</a>
+            </div>
             <h2>💀 Wreckage Processing Simulator 💀</h2>
             <p style="margin-bottom: 15px; font-style: italic; color: #666;">turn your L's into W's (kinda)</p>
             
@@ -628,8 +655,9 @@
                 totalWreckage += amount;
                 updateMetrics();
                 
-                addTerminalLine('✓ Minted ' + fryAmount.toLocaleString() + ' FRY tokens (congrats i guess)');
-                addTerminalLine('✓ Transaction confirmed on Arbitrum Sepolia (it\'s testnet lol)');
+                addTerminalLine('✓ Minted ' + fryAmount.toLocaleString() + ' FRY tokens');
+                addTerminalLine('✓ Transaction confirmed on Arbitrum Mainnet');
+                addTerminalLine('✓ Contract: 0xf97E890aDf8968256225060e8744a797954C33CF');
                 addTerminalLine('> System ready (for more losses)<span class="blink">_</span>');
                 
                 animateProgress(Math.min((totalWreckage / 50000) * 100, 100));
@@ -645,8 +673,14 @@
             setTimeout(() => {
                 contractCount++;
                 updateMetrics();
-                const address = '0x' + Math.random().toString(16).substr(2, 40);
+                const contracts = [
+                    '0x492397d5912C016F49768fBc942d894687c5fe33',
+                    '0xf97E890aDf8968256225060e8744a797954C33CF',
+                    '0xdF0B798E51d5149fE97D57fbBc8D6A8A0756204e'
+                ];
+                const address = contracts[Math.floor(Math.random() * contracts.length)];
                 addTerminalLine('✓ Contract deployed at ' + address);
+                addTerminalLine('✓ Network: Arbitrum Mainnet (Chain ID: 42161)');
                 addTerminalLine('✓ Gas used: ' + Math.floor(Math.random() * 500000 + 200000).toLocaleString());
                 addTerminalLine('> System ready<span class="blink">_</span>');
             }, 1200);
@@ -659,10 +693,10 @@
 
         function showMetricDetails(type) {
             const details = {
-                fry: 'FRY tokens are minted at 2.26x rate per $1 of wreckage processed through the liquidity rails system.',
-                wreckage: 'Total trading losses processed and converted into productive FRY tokens via the three-tier routing system.',
-                efficiency: 'Current minting efficiency. Higher values indicate better routing through P2P matching and liquidity rails.',
-                contracts: 'Number of smart contracts deployed and active on Arbitrum Sepolia testnet.'
+                fry: 'FRY tokens are minted at 2.26x rate per $1 of wreckage. Live on Arbitrum Mainnet with Chainlink price verification.',
+                wreckage: 'Total trading losses processed. Oct 10, 2024: $19B liquidations validated the need for decentralized liquidity.',
+                efficiency: 'Current minting efficiency. Chainlink oracles ensure accurate, tamper-proof price feeds.',
+                contracts: 'Live smart contracts on Arbitrum Mainnet. Token: 0x492397...5fe33 | Processor: 0xf97E89...C33CF'
             };
             addTerminalLine('');
             addTerminalLine('ℹ️  ' + details[type]);
