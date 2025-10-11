@@ -9,7 +9,7 @@ When centralized fails...
 
 ...choose FRY
 • decentralized liquidity rails
-• wreckage → FRY Tokens (2.6x)
+• Chainlink oracles + Arbitrum
 
 ---
 
