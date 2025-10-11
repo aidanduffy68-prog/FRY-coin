@@ -641,6 +641,125 @@
       "artifacts": [
         "USDFRYToken"
       ]
+    },
+    "/Users/AidanMDuffy/Desktop/[GREENHOUSE & COMPANY]/trading view /CascadeProjects/windsurf-project/fry-liquidity-rails-clean/liquidity-rails/core/contracts/contracts/FRYPredictionMarket.sol": {
+      "lastModificationDate": 1760128169461,
+      "contentHash": "e563260583045147a55d46b617c9a044",
+      "sourceName": "contracts/FRYPredictionMarket.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "FRYPredictionMarket",
+        "IUSDFRYToken"
+      ]
+    },
+    "/Users/AidanMDuffy/Desktop/[GREENHOUSE & COMPANY]/trading view /CascadeProjects/windsurf-project/fry-liquidity-rails-clean/liquidity-rails/core/contracts/node_modules/@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1760156898628,
+      "contentHash": "29c520cd24ad9a3f2c9cf285fee25f05",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AggregatorV3Interface"
+      ]
+    },
+    "/Users/AidanMDuffy/Desktop/[GREENHOUSE & COMPANY]/trading view /CascadeProjects/windsurf-project/fry-liquidity-rails-clean/liquidity-rails/core/contracts/contracts/WreckageProcessorWithOracle.sol": {
+      "lastModificationDate": 1760128137953,
+      "contentHash": "c2db5a57123f21744d8d58faae370f45",
+      "sourceName": "contracts/WreckageProcessorWithOracle.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "IUSDFRYToken",
+        "WreckageProcessorWithOracle"
+      ]
     }
   }
 }

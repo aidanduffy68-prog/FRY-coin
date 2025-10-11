@@ -1,0 +1,25 @@
+{
+  "network": "arbitrum",
+  "chainId": 42161,
+  "timestamp": "2025-10-11T04:31:04.702Z",
+  "deployer": "0xf551aF8d5373B042DBB9F0933C59213B534174e4",
+  "contracts": {
+    "USDFRYToken": "0x492397d5912C016F49768fBc942d894687c5fe33",
+    "WreckageProcessorWithOracle": "0xf97E890aDf8968256225060e8744a797954C33CF",
+    "FRYPredictionMarket": "0xdF0B798E51d5149fE97D57fbBc8D6A8A0756204e"
+  },
+  "externalContracts": {
+    "USDC": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+  },
+  "chainlinkFeeds": {
+    "BTC_USD": "0x6ce185860a4963106506C203335A2910413708e9",
+    "ETH_USD": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612"
+  },
+  "initialMarket": {
+    "question": "Will BTC recover to $112k within 30 days? (50% of Oct 10 losses)",
+    "asset": "BTC",
+    "targetPrice": "11200000000000",
+    "resolutionTime": 1762749059,
+    "priceFeed": "0x6ce185860a4963106506C203335A2910413708e9"
+  }
+}

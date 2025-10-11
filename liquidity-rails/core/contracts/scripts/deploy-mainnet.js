@@ -1,4 +1,5 @@
 const hre = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
   console.log("🍟 Deploying FRY Protocol to Arbitrum Mainnet...\n");
@@ -6,11 +7,11 @@ async function main() {
   // Get deployer
   const [deployer] = await ethers.getSigners();
   console.log("Deploying with account:", deployer.address);
-  const balance = await deployer.getBalance();
-  console.log("Account balance:", ethers.utils.formatEther(balance), "ETH\n");
+  const balance = await ethers.provider.getBalance(deployer.address);
+  console.log("Account balance:", ethers.formatEther(balance), "ETH\n");
 
   // Check balance
-  if (balance.lt(ethers.utils.parseEther("0.01"))) {
+  if (balance < ethers.parseEther("0.01")) {
     console.error("⚠️  Warning: Low balance. Deployment may fail.");
   }
 
@@ -23,38 +24,38 @@ async function main() {
   console.log("1. Deploying USD_FRY Token...");
   const USDFRYToken = await ethers.getContractFactory("USDFRYToken");
   const usdFryToken = await USDFRYToken.deploy();
-  await usdFryToken.deployed();
-  console.log("✓ USD_FRY Token deployed to:", usdFryToken.address);
-  console.log("  Gas used:", (await usdFryToken.deployTransaction.wait()).gasUsed.toString(), "\n");
+  await usdFryToken.waitForDeployment();
+  const usdFryAddress = await usdFryToken.getAddress();
+  console.log("✓ USD_FRY Token deployed to:", usdFryAddress, "\n");
 
   // 2. Deploy WreckageProcessorWithOracle
   console.log("2. Deploying WreckageProcessorWithOracle...");
   const WreckageProcessor = await ethers.getContractFactory("WreckageProcessorWithOracle");
-  const wreckageProcessor = await WreckageProcessor.deploy(usdFryToken.address);
-  await wreckageProcessor.deployed();
-  console.log("✓ WreckageProcessorWithOracle deployed to:", wreckageProcessor.address);
-  console.log("  Gas used:", (await wreckageProcessor.deployTransaction.wait()).gasUsed.toString(), "\n");
+  const wreckageProcessor = await WreckageProcessor.deploy(usdFryAddress);
+  await wreckageProcessor.waitForDeployment();
+  const wreckageAddress = await wreckageProcessor.getAddress();
+  console.log("✓ WreckageProcessorWithOracle deployed to:", wreckageAddress, "\n");
 
   // 3. Deploy FRYPredictionMarket
   console.log("3. Deploying FRYPredictionMarket...");
   const PredictionMarket = await ethers.getContractFactory("FRYPredictionMarket");
   const predictionMarket = await PredictionMarket.deploy(
-    usdFryToken.address,
+    usdFryAddress,
     USDC_MAINNET
   );
-  await predictionMarket.deployed();
-  console.log("✓ FRYPredictionMarket deployed to:", predictionMarket.address);
-  console.log("  Gas used:", (await predictionMarket.deployTransaction.wait()).gasUsed.toString(), "\n");
+  await predictionMarket.waitForDeployment();
+  const predictionAddress = await predictionMarket.getAddress();
+  console.log("✓ FRYPredictionMarket deployed to:", predictionAddress, "\n");
 
   // 4. Grant minting permissions
   console.log("4. Granting minting permissions...");
   const MINTER_ROLE = await usdFryToken.MINTER_ROLE();
   
-  const tx1 = await usdFryToken.grantRole(MINTER_ROLE, wreckageProcessor.address);
+  const tx1 = await usdFryToken.grantRole(MINTER_ROLE, wreckageAddress);
   await tx1.wait();
   console.log("✓ Granted MINTER_ROLE to WreckageProcessor");
   
-  const tx2 = await usdFryToken.grantRole(MINTER_ROLE, predictionMarket.address);
+  const tx2 = await usdFryToken.grantRole(MINTER_ROLE, predictionAddress);
   await tx2.wait();
   console.log("✓ Granted MINTER_ROLE to PredictionMarket\n");
 
@@ -83,9 +84,9 @@ async function main() {
   console.log("=".repeat(70));
   console.log("🎉 MAINNET DEPLOYMENT COMPLETE!\n");
   console.log("Contract Addresses:");
-  console.log("  USD_FRY Token:              ", usdFryToken.address);
-  console.log("  WreckageProcessorWithOracle:", wreckageProcessor.address);
-  console.log("  FRYPredictionMarket:        ", predictionMarket.address);
+  console.log("  USD_FRY Token:              ", usdFryAddress);
+  console.log("  WreckageProcessorWithOracle:", wreckageAddress);
+  console.log("  FRYPredictionMarket:        ", predictionAddress);
   console.log("\nChainlink Price Feeds (Arbitrum Mainnet):");
   console.log("  BTC/USD:", BTC_USD_FEED);
   console.log("  ETH/USD:", ETH_USD_FEED);
@@ -93,9 +94,9 @@ async function main() {
   console.log("  USDC:   ", USDC_MAINNET);
   console.log("\nNext Steps:");
   console.log("  1. Verify contracts on Arbiscan:");
-  console.log("     npx hardhat verify --network arbitrum", usdFryToken.address);
-  console.log("     npx hardhat verify --network arbitrum", wreckageProcessor.address, usdFryToken.address);
-  console.log("     npx hardhat verify --network arbitrum", predictionMarket.address, usdFryToken.address, USDC_MAINNET);
+  console.log("     npx hardhat verify --network arbitrum", usdFryAddress);
+  console.log("     npx hardhat verify --network arbitrum", wreckageAddress, usdFryAddress);
+  console.log("     npx hardhat verify --network arbitrum", predictionAddress, usdFryAddress, USDC_MAINNET);
   console.log("  2. Update demo with mainnet addresses");
   console.log("  3. Test wreckage processing with real funds");
   console.log("  4. Create more prediction markets");
@@ -109,9 +110,9 @@ async function main() {
     timestamp: new Date().toISOString(),
     deployer: deployer.address,
     contracts: {
-      USDFRYToken: usdFryToken.address,
-      WreckageProcessorWithOracle: wreckageProcessor.address,
-      FRYPredictionMarket: predictionMarket.address
+      USDFRYToken: usdFryAddress,
+      WreckageProcessorWithOracle: wreckageAddress,
+      FRYPredictionMarket: predictionAddress
     },
     externalContracts: {
       USDC: USDC_MAINNET
