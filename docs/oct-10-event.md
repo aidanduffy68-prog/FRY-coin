@@ -20,5 +20,4 @@ Chainlink oracles + Arbitrum
 Demo live: [link]
 Mirror: [link]
 
-*Built for traders who lose money.*
-*Because centralized systems fail.*
+*Decentralized liquidity for when centralized fails.*
