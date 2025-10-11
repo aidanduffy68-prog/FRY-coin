@@ -1,38 +1,17 @@
-# October 10, 2024 Market Event
+# Oct 10, 2024
 
-## Summary
-- **$19B** liquidations in 24 hours (largest in history)
-- **1.6M traders** affected
-- **87%** long positions ($16.6B) vs 13% shorts ($2.4B)
-- BTC: $122k → $102k (-16.4%)
-- Volume ATH, Liquidity ATL
-- Auto-deleveraging imposed
+**$19B liquidations** (largest ever)
+**1.6M traders** affected
+**87%** longs destroyed
 
-## What Happened
-Macro trigger (tariffs) → BTC drop → cascading liquidations → liquidity crisis → ADL events
+BTC: $122k → $102k
+Volume ATH / Liquidity ATL
+ADL imposed
 
-## Speculation
-Unconfirmed reports of major market maker (Binance/Wintermute) issues. Would explain liquidity disappearance and ADL necessity.
+**Speculation:** Major market maker (Binance/Wintermute) issues
 
-## USD_FRY Context
-Built decentralized liquidity rails to process wreckage. Launched Oct 9, event Oct 10.
+**USD_FRY:** Launched Oct 9
+Decentralized liquidity rails
+Thesis validated: Centralized = single point of failure
 
-**Validates thesis:**
-- Centralized liquidity = single point of failure
-- When it fails, cascades happen
-- Need decentralized alternatives
-
-## Approach
-- Document facts, don't celebrate
-- Empathize with affected traders
-- Offer demo as tool, not solution
-- Acknowledge timing without marketing
-
-## Sources
-- CoinGlass (liquidation data)
-- CryptoBriefing article
-- Market observations
-
----
-
-*Handling with respect. 1.6M people lost money.*
+**Sources:** CoinGlass, CryptoBriefing
