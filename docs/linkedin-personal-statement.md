@@ -75,6 +75,8 @@ Demo: https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
 
 Sometimes you build things not because they'll win, but because they should exist.
 
+#crypto #DeFi #Arbitrum #Chainlink #decentralization
+
 ---
 
 ## Recommendation: Option 4

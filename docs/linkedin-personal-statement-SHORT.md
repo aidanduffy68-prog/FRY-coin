@@ -14,6 +14,8 @@ Will it replace what you're using? Probably not.
 
 But it exists: https://aidanduffy68-prog.github.io/USD_FRY/
 
+#crypto #DeFi #Arbitrum #Chainlink
+
 ---
 
 **Even shorter (Twitter-length):**
@@ -26,6 +28,8 @@ It won't replace centralized exchanges. But it exists.
 
 https://aidanduffy68-prog.github.io/USD_FRY/
 
+#crypto #DeFi #Chainlink
+
 ---
 
 **Ultra-short (for comments):**
@@ -33,3 +37,5 @@ https://aidanduffy68-prog.github.io/USD_FRY/
 Built a decentralized alternative. Deployed Oct 9. Crash happened Oct 10.
 
 Bad timing or good timing? Either way, it's live: https://aidanduffy68-prog.github.io/USD_FRY/
+
+#DeFi #crypto
