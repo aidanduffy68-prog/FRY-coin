@@ -12,7 +12,7 @@ FRY Protocol: Converts losses into productive assets. 2.26x efficiency through o
 
 Will it replace what you're using? Probably not.
 
-But it exists: https://aidanduffy68-prog.github.io/USD_FRY/
+https://aidanduffy68-prog.github.io/USD_FRY/
 
 #crypto #DeFi #Arbitrum #Chainlink
 

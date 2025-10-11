@@ -71,7 +71,7 @@ Will it replace centralized exchanges? No. Will 1.6M traders suddenly switch? Pr
 
 But it exists. It's live. And next time someone asks "why isn't there a decentralized alternative?" - there is.
 
-Demo: https://aidanduffy68-prog.github.io/USD_FRY/interactive-demo.html
+https://aidanduffy68-prog.github.io/USD_FRY/
 
 Sometimes you build things not because they'll win, but because they should exist.
 
