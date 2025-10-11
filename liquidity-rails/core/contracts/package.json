@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "FRY Protocol Smart Contracts - Liquidity Rails for Wreckage Absorption",
   "scripts": {
-    "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy:local": "hardhat run scripts/deploy.js --network hardhat",
-    "deploy:testnet": "hardhat run scripts/deploy.js --network arbitrumSepolia",
-    "deploy:mainnet": "hardhat run scripts/deploy.js --network arbitrum",
+    "compile": "hardhat compile",
+    "deploy:testnet": "hardhat run scripts/deploy-oracle-contracts.js --network arbitrumSepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy-mainnet.js --network arbitrum",
     "verify:testnet": "hardhat run scripts/verify.js --network arbitrumSepolia",
     "verify:mainnet": "hardhat run scripts/verify.js --network arbitrum"
   },
