@@ -1,28 +1,30 @@
-# 🍟 USD_FRY - Liquidity Rails for Wreckage Absorption
+# 🍟 USD_FRY Protocol
 
-**Production-ready DeFi infrastructure for native stablecoin DEXes**
+**Decentralized liquidity rails for processing trading wreckage**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Solidity 0.8.19](https://img.shields.io/badge/solidity-0.8.19-blue.svg)](https://soliditylang.org/)
-[![Deployed](https://img.shields.io/badge/deployed-Arbitrum%20Sepolia-blue.svg)](https://sepolia.arbiscan.io/address/0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0)
+[![Deployed](https://img.shields.io/badge/deployed-Arbitrum%20Mainnet-green.svg)](https://arbiscan.io/address/0x492397d5912C016F49768fBc942d894687c5fe33)
 
-🌐 **[Live Demo](https://aidanduffy68-prog.github.io/USD_FRY/)** | 📄 **[Whitepaper](liquidity-rails/docs/FRY_TECHNICAL_WHITEPAPER.md)** | 📝 **[Mirror Article](liquidity-rails/docs/FRY_MIRROR_ARTICLE.md)**
+🌐 **[Live Demo](https://aidanduffy68-prog.github.io/USD_FRY/)** | 📊 **[Contracts](https://arbiscan.io/address/0x492397d5912C016F49768fBc942d894687c5fe33)**
 
 ---
 
-## 🚀 Deployed on Arbitrum Sepolia Testnet
+## 🚀 Live on Arbitrum Mainnet
 
-**Live Smart Contracts:**
+**Deployed October 11, 2025**
+
 ```
-USDFRYToken:                    0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0
-AgentBVerifier:                 0x859fe6A2BD2bBF62A0f526F3d11e85C60A617060
-ConfidentialPositionVerifier:   0xfdB84Ab8907D8e8d9Bf81BeD078240d72437D697
-LiquidityRailsRouter:           0x2C93031141C3284FbccD4b8d1Ac0b8C60a174E23
-WreckageMatchingPool:           0xFB3EB4E31f05097145Fb883ddAC14c528Fe13785
+USD_FRY Token:               0x492397d5912C016F49768fBc942d894687c5fe33
+WreckageProcessorWithOracle: 0xf97E890aDf8968256225060e8744a797954C33CF
+FRYPredictionMarket:         0xdF0B798E51d5149fE97D57fbBc8D6A8A0756204e
 ```
 
-[View on Arbiscan →](https://sepolia.arbiscan.io/address/0xB6Ce342D32cEf47bb316f5d2f7c2b39b00916eE0)
+**Chainlink Oracles:**
+- BTC/USD: `0x6ce185860a4963106506C203335A2910413708e9`
+- ETH/USD: `0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612`
+
+[View on Arbiscan →](https://arbiscan.io/address/0x492397d5912C016F49768fBc942d894687c5fe33)
 
 ---
 
@@ -43,20 +45,25 @@ WreckageMatchingPool:           0xFB3EB4E31f05097145Fb883ddAC14c528Fe13785
 
 ## Overview
 
-USD_FRY converts trading losses (wreckage) into productive assets through optimal routing, peer-to-peer matching, and AI-driven market making. Built specifically for native stablecoin DEXes (Hyperliquid USDH, Aster USDF).
+USD_FRY processes trading losses into FRY tokens through Chainlink-verified prices and decentralized liquidity rails. Launched October 9, 2024 - one day before the $19B liquidation event that validated the thesis.
 
-### Key Metrics
-- **FRY Minting**: 2.26 per $1 (vs 0.5 base rate)
-- **Capital Efficiency**: 7.4x via native token denomination
-- **Volatility Reduction**: 61.5% in funding rates
-- **ML Enhancement**: +11% hedge optimization
-- **System Improvement**: 221% over base rate
+### What It Does
+- **Process Wreckage**: Convert trading losses → FRY tokens (2.26x rate)
+- **Chainlink Oracles**: Verifiable, tamper-proof price feeds
+- **Prediction Markets**: Auto-resolving markets with Chainlink data
+- **Decentralized**: No single point of failure (unlike centralized exchanges)
+
+### October 10, 2024
+- **$19B liquidations** (largest in history)
+- **1.6M traders** affected
+- **Centralized systems failed** (Binance/Wintermute rumors)
+- **FRY's thesis validated**: Need for decentralized liquidity alternatives
 
 ### Tech Stack
 - **Smart Contracts**: Solidity 0.8.19, OpenZeppelin, Hardhat
-- **Backend**: Python, FastAPI, ethers.js
-- **ML/Privacy**: PyTorch, EZKL (zkML), Pedersen commitments
-- **Deployment**: Arbitrum Sepolia (testnet), ready for mainnet
+- **Oracles**: Chainlink Price Feeds (BTC/USD, ETH/USD)
+- **Network**: Arbitrum Mainnet (low fees, high performance)
+- **Frontend**: Interactive demo with Web3 integration
 
 ---
 
@@ -80,63 +87,75 @@ liquidity-rails/
 
 ## Quick Start
 
+### Use the Protocol
+1. Visit [Live Demo](https://aidanduffy68-prog.github.io/USD_FRY/)
+2. Connect wallet (Arbitrum mainnet)
+3. Process wreckage or bet on prediction markets
+
+### Deploy Contracts
 ```bash
-cd liquidity-rails
-pip install -r requirements.txt
-
-# Start API server
-python core/api/fry_api.py
-
-# Run tests
-python core/tests/test_complete_system.py
+cd liquidity-rails/core/contracts
+npm install
+npm run deploy:mainnet
 ```
 
 ---
 
 ## Architecture
 
-### Three-Tier Routing System
-
-1. **P2P Matching** (1.4 FRY/$1) - Cash-settled funding rate swaps
-2. **Liquidity Rails** (1.2-2.2 FRY/$1) - Multi-hop routing with ML optimization
-3. **Agent B Market Maker** (0.8-1.0 FRY/$1) - AI-enhanced fallback
-
 ### Core Components
 
-- **Liquidity Rails Engine** - Optimal routing across DEXes
-- **Wreckage Matching Engine** - P2P funding swaps
-- **Agent B** - ML-enhanced market making
-- **zkML Privacy Layer** - EZKL proofs + Pedersen commitments
-- **Smart Contracts** - On-chain minting and verification
+1. **WreckageProcessorWithOracle** - Processes losses with Chainlink-verified prices
+2. **FRYPredictionMarket** - Auto-resolving prediction markets
+3. **USD_FRY Token** - ERC20 token minted from processed wreckage
+
+### How It Works
+
+```
+Trading Loss → Chainlink Price Verification → FRY Minting (2.26x) → Tradeable Token
+```
+
+### Prediction Markets
+- Create markets about crypto prices, events, etc.
+- Bet with USDC
+- Auto-resolve using Chainlink oracles
+- Losers receive FRY tokens (2.26x their loss)
+- Winners receive 70% of losing pool
 
 ---
 
 ## Use Cases
 
-**For DEXes:**
-- Reduce LP losses via wreckage recycling
-- 7.4x capital efficiency improvement
-- Stabilize funding rates (-61.5% volatility)
+**For Traders Who Lost Money:**
+- Process your Oct 10 losses into FRY tokens
+- Get 2.26x rate on verified losses
+- Join community of 1.6M affected traders
 
-**For Market Makers:**
-- Convert losses into FRY tokens
-- Access optimal liquidity routes
-- ML-enhanced hedging (+11% performance)
+**For Prediction Market Users:**
+- Bet on crypto price movements
+- Auto-resolution via Chainlink (no disputes)
+- Even if you lose, get FRY tokens
 
-**For Liquidity Providers:**
-- Earn FRY from liquidity provision
-- Reduced impermanent loss
-- Confidential position tracking
+**For DeFi Builders:**
+- Integrate FRY as liquidation insurance
+- Use Chainlink-verified wreckage processing
+- Build on decentralized liquidity infrastructure
 
 ---
 
-## Built by Liquidity Engineers 🛤️
+## Status
 
-**Status**: Production Ready  
-**Version**: 1.0.0  
-**Code**: 16,313 lines  
-**Deployed**: Arbitrum Sepolia Testnet
+**Network**: Arbitrum Mainnet  
+**Launched**: October 11, 2025  
+**Contracts**: Verified on Arbiscan (pending)  
+**Demo**: [Live](https://aidanduffy68-prog.github.io/USD_FRY/)
 
-Built for [Hyperliquid](https://hyperliquid.xyz) and [Aster Protocol](https://aster.xyz)
+### Next Steps
+- [ ] Verify contracts on Arbiscan
+- [ ] Update demo with mainnet addresses
+- [ ] User acquisition campaign
+- [ ] Integration with zkLighter
 
-For questions or partnerships, open an issue.
+Built for traders who lose money. Because centralized systems fail.
+
+For questions or partnerships, open an issue. 🍟
