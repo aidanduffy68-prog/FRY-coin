@@ -65,11 +65,9 @@ October 10, 2024: $19B liquidations. Biggest in crypto history.
 
 I'd been building FRY Protocol for months. Deployed to mainnet the day before.
 
-Centralized exchanges have all the power. Market makers can see your positions and trade against you. Retail gets liquidated while insiders walk away clean.
+FRY is decentralized liquidity infrastructure. Chainlink oracles. Process losses on-chain. No single point of failure.
 
-FRY is decentralized liquidity infrastructure. Chainlink oracles for price verification. Process losses on-chain. No single point of failure.
-
-Is it perfect? No. Will it replace Binance? Probably not. Do I think 1.6M traders will suddenly switch to a protocol they've never heard of? Definitely not.
+Will it replace centralized exchanges? No. Will 1.6M traders suddenly switch? Probably not.
 
 But it exists. It's live. And next time someone asks "why isn't there a decentralized alternative?" - there is.
 
