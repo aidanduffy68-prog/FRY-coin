@@ -1,17 +1,24 @@
-# Oct 10, 2024
+# $FRY - Thesis Validated
 
-**$19B liquidations** (largest ever)
-**1.6M traders** affected
-**87%** longs destroyed
+**Oct 10, 2024:**
+$19B liquidations (largest ever)
+1.6M traders affected
 
-BTC: $122k → $102k
-Volume ATH / Liquidity ATL
-ADL imposed
+**What failed:**
+Centralized liquidity (Binance/Wintermute rumors)
+Volume ATH, Liquidity ATL → Cascade
 
-**Speculation:** Major market maker (Binance/Wintermute) issues
+**What we built:**
+$FRY - Decentralized liquidity rails
+Process wreckage → FRY tokens (2.26x)
+Chainlink oracles + Arbitrum
 
-**USD_FRY:** Launched Oct 9
-Decentralized liquidity rails
-Thesis validated: Centralized = single point of failure
+**Launched:** Oct 9
+**Crash:** Oct 10
+**Thesis:** Validated
 
-**Sources:** CoinGlass, CryptoBriefing
+Demo live: [link]
+Mirror: [link]
+
+*Built for traders who lose money.*
+*Because centralized systems fail.*
